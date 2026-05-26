@@ -1,7 +1,7 @@
 'use client';
 
 import { ALLOWED_IMAGE_TYPES } from '@/config/constants';
-import { ChevronDownIcon, Loader2, PlusIcon, XIcon } from 'lucide-react';
+import { ChevronDownIcon, Download, Loader2, PlusIcon, XIcon } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
 
@@ -21,6 +21,8 @@ import { useRemoveBg } from '../../_services/removebg-hooks';
 const BgRemoveBox = () => {
   const {
     onDrop,
+    localimage,
+    setlocalImage,
     image,
     onClear,
     onChange,
@@ -39,7 +41,8 @@ const BgRemoveBox = () => {
       onDrop={onDrop}
       onDragOver={(e) => e.preventDefault()}
     >
-      {!isLoading && image?.result && (
+      {!isLoading && image && (
+        // {!isLoading && image?.result && (
         <div className="flex items-center justify-between gap-3 mb-4">
           <div className="bg-accent rounded-md p-1">
             <Button
@@ -61,24 +64,42 @@ const BgRemoveBox = () => {
               After
             </Button>
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button>
-                Download <ChevronDownIcon />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-[250px] rounded-2xl shadow-lg p-3 gap-2 flex flex-col">
+          <Button
+            onClick={async () => {
+              if (!image) return;
+
+              try {
+                const response = await fetch(image);
+                const blob = await response.blob();
+
+                const url = window.URL.createObjectURL(blob);
+
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'removed-background.png';
+
+                document.body.appendChild(link);
+                link.click();
+
+                document.body.removeChild(link);
+
+                window.URL.revokeObjectURL(url);
+              } catch (error) {
+                console.error('Download failed:', error);
+              }
+            }}
+          >
+            Download <Download />
+          </Button>
+          {/* <DropdownMenuContent className="w-[250px] rounded-2xl shadow-lg p-3 gap-2 flex flex-col">
               <DropdownMenuItem
                 onClick={() => {
-                  window.open(image?.result?.preview, '_blank');
+                  window.open(image, '_blank');
                 }}
                 className="flex items-center rounded-full px-5 transition-all py-2 pr-4"
               >
                 <div>
                   <p className="text-[13px] font-semibold">Preview</p>
-                  <p className="text-xs font-medium text-muted-foreground">
-                    {image?.result?.previewWidth || 0} x {image?.result?.previewHeight || 0}
-                  </p>
                 </div>
                 <Badge className="ml-auto" variant="secondary">
                   Free
@@ -94,9 +115,6 @@ const BgRemoveBox = () => {
               >
                 <div>
                   <p className="text-[13px] font-semibold">Max Quality</p>
-                  <p className="text-xs font-medium text-muted-foreground">
-                    {image?.result?.outputWidth || 0} x {image?.result?.outputHeight || 0}
-                  </p>
                 </div>
                 <Badge
                   className="ml-auto bg-primary text-primary-foreground h-6 w-17"
@@ -109,21 +127,28 @@ const BgRemoveBox = () => {
                   )}
                 </Badge>
               </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </DropdownMenuContent> */}
         </div>
       )}
       <div className="flex relative items-center flex-col justify-center gap-5 border-2 shadow-xl border-card dark:border-input rounded-2xl bg-[repeating-conic-gradient(var(--accent)_0_25%,transparent_0_50%)] bg-[length:20px_20px] w-full h-[300px] sm:h-[450px]">
-        {image ? (
+        {localimage?.preview ? (
           <>
             <Image
-              src={showOrignal || !image?.result?.preview ? image.preview : image?.result?.preview}
+              src={showOrignal || !image ? localimage?.preview : image}
               alt="image"
               className="object-contain w-auto h-full"
               unoptimized
               width={1000}
               height={1000}
             />
+            {/* <Image
+              src={showOrignal || !image?.result?.preview ? image.preview : image?.result?.preview}
+              alt="image"
+              className="object-contain w-auto h-full"
+              unoptimized
+              width={1000}
+              height={1000}
+            /> */}
             <Button
               variant="outline"
               className="absolute top-4 right-4 p-0 size-8 z-[1]"
@@ -144,7 +169,7 @@ const BgRemoveBox = () => {
           </>
         ) : (
           <>
-            <Button asChild size="lg" className="h-12 px-4 font-semibold rounded-xl">
+            <Button type="button" asChild size="lg" className="h-12 px-4 font-semibold rounded-xl">
               <label htmlFor="file-upload">
                 <div className="bg-accent/10 rounded-full p-1">
                   <PlusIcon className="stroke-[3px]" />

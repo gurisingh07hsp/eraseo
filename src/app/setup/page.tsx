@@ -12,6 +12,8 @@ export const metadata = {
 const SetupPage = async () => {
   const isSetupComplete = await commonServices.checkSetup();
 
+  console.log('isSetup : ', isSetupComplete);
+
   if (isSetupComplete) {
     redirect('/'); // Redirect to the home page if setup is complete
   }

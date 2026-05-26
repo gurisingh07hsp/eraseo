@@ -80,67 +80,91 @@ const removeImageBackground = async (c: Context<Env, string>, userId?: string) =
 
   const responseData = (await response.json()) as any;
 
+  console.log("response Data : ", responseData);
+
   if (!response.ok) {
     console.error('Error removing image background:', responseData);
     throw new APIError('Error removing image background. Please try again later.');
   }
 
-  const outputUrl = responseData?.output;
+  // const outputUrl = responseData?.output;
+  const outputUrl = Array.isArray(responseData?.output)
+    ? responseData.output[0]
+    : responseData.output;
   if (!outputUrl) {
     console.error('Error removing image background:', responseData);
     throw new APIError('Error removing image background. Please try again later.');
   }
 
-  const fileName = image.name?.split('.')?.[0] || 'image';
-  const inputMedia = await mediaServices.uploadMedia(image);
-
-  const outputArrayBuffer = await fetch(outputUrl).then((res) => res.arrayBuffer());
-  const outputBuffer = Buffer.from(outputArrayBuffer);
-  const outputDimensions = sizeOf(outputBuffer);
-  const outputFile = new File([outputBuffer], `${fileName}.png`, {
-    type: 'image/png',
-    lastModified: Date.now(),
-  });
-  const outputMedia = await mediaServices.uploadMedia(outputFile);
-
-  const previewImage = await sharp(outputBuffer)
-    .resize({
-      width: PREVIEW_MAX_SIZE,
-      height: PREVIEW_MAX_SIZE,
-      fit: 'inside',
-      withoutEnlargement: true,
-    })
-    .toFormat('png')
-    .toBuffer();
-  const previewDimensions = sizeOf(previewImage);
-  const previewFile = new File([previewImage], `${fileName}-preview.png`, {
-    type: 'image/png',
-    lastModified: Date.now(),
-  });
-  const previewMedia = await mediaServices.uploadMedia(previewFile);
-
-  const history = await prisma.history.create({
-    data: {
-      userId: userId,
-      inputMediaId: inputMedia?.id,
-      previewMediaId: previewMedia?.id,
-      outputMediaId: outputMedia?.id,
-      peviewHeight: previewDimensions.height,
-      previewWidth: previewDimensions.width,
-      outputHeight: outputDimensions.height,
-      outputWidth: outputDimensions.width,
-      expiredAt,
-    },
-  });
-
   return {
-    id: history.id,
-    preview: previewMedia.url,
-    previewWidth: previewDimensions.width,
-    previewHeight: previewDimensions.height,
-    outputWidth: outputDimensions.width,
-    outputHeight: outputDimensions.height,
-  };
+    outputUrl
+  }
+
+  // const fileName = image.name?.split('.')?.[0] || 'image';
+  // const inputMedia = await mediaServices.uploadMedia(image);
+
+  // const outputArrayBuffer = await fetch(outputUrl).then((res) => res.arrayBuffer());
+  // const outputBuffer = Buffer.from(outputArrayBuffer);
+  // const outputDimensions = sizeOf(outputBuffer);
+  // const outputFile = new File([outputBuffer], `${fileName}.png`, {
+  //   type: 'image/png',
+  //   lastModified: Date.now(),
+  // });
+  // const outputMedia = await mediaServices.uploadMedia(outputFile);
+
+  // const previewImage = await sharp(outputBuffer)
+  //   .resize({
+  //     width: PREVIEW_MAX_SIZE,
+  //     height: PREVIEW_MAX_SIZE,
+  //     fit: 'inside',
+  //     withoutEnlargement: true,
+  //   })
+  //   .toFormat('png')
+  //   .toBuffer();
+
+  // console.log('Preview Image : ', previewImage)
+
+  // const previewDimensions = sizeOf(previewImage);
+  // const previewFile = new File([previewImage], `${fileName}-preview.png`, {
+  //   type: 'image/png',
+  //   lastModified: Date.now(),
+  // });
+  // const previewFile = new File(
+  //   [new Uint8Array(previewImage)],
+  //   `${fileName}-preview.png`,
+  //   {
+  //     type: 'image/png',
+  //     lastModified: Date.now(),
+  //   }
+  // );
+  // console.log("previewFile : ", previewFile);
+  // const previewMedia = await mediaServices.uploadMedia(previewFile);
+  // console.log('PreviewMedia : ', previewMedia);
+
+  // const history = await prisma.history.create({
+  //   data: {
+  //     userId: userId,
+  //     inputMediaId: inputMedia?.id,
+  //     previewMediaId: previewMedia?.id,
+  //     outputMediaId: outputMedia?.id,
+  //     peviewHeight: previewDimensions.height,
+  //     previewWidth: previewDimensions.width,
+  //     outputHeight: outputDimensions.height,
+  //     outputWidth: outputDimensions.width,
+  //     expiredAt,
+  //   },
+  // });
+
+  // console.log('History : ', history);
+
+  // return {
+  //   id: history.id,
+  //   preview: previewMedia.url,
+  //   previewWidth: previewDimensions.width,
+  //   previewHeight: previewDimensions.height,
+  //   outputWidth: outputDimensions.width,
+  //   outputHeight: outputDimensions.height,
+  // };
 };
 
 export type RemoveBgResponse = Awaited<ReturnType<typeof removeImageBackground>>;
