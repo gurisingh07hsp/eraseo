@@ -108,7 +108,7 @@ const setupApp = async (body: z.infer<typeof commonSchema.setupAppSchema>) => {
 
 const checkSetup = async () => {
   const user = await prisma.user.findFirst();
-  console.log(user);
+  // console.log(user);
   if (user) {
     return true;
   }
