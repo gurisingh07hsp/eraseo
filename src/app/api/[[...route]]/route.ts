@@ -1,4 +1,4 @@
-import { LOCAL_MEDIA_PREFIX, LOCAL_UPLOAD_DIR } from '@/config/constants';
+// import { LOCAL_MEDIA_PREFIX, LOCAL_UPLOAD_DIR } from '@/config/constants';
 import aiRouter from '@/server/ai/ai-routes';
 import authRouter from '@/server/auth/auth-routes';
 import billingRouter from '@/server/billing/billing-routes';
@@ -13,13 +13,13 @@ import { Hono } from 'hono';
 import { compress } from 'hono/compress';
 import { cors } from 'hono/cors';
 import { secureHeaders } from 'hono/secure-headers';
-import { serveStatic } from 'hono/serve-static';
+// import { serveStatic } from 'hono/serve-static';
 import { handle } from 'hono/vercel';
 import httpStatus from 'http-status';
-import path from 'path';
+// import path from 'path';
 
 import APIError from '@/lib/api-error';
-import { getFileByPath } from '@/lib/file';
+// import { getFileByPath } from '@/lib/file';
 
 // Create Hono app with base path /api
 const app = new Hono().basePath('/api');
@@ -30,31 +30,31 @@ app.use(cors());
 app.use(secureHeaders());
 
 // static files
-app.use(
-  `/${LOCAL_MEDIA_PREFIX}/*`,
-  serveStatic({
-    async getContent(p, c) {
-      const fileName = p.split('/').pop();
-      if (!fileName) {
-        return null;
-      }
-      const filePath = path.join(process.cwd(), LOCAL_UPLOAD_DIR, fileName);
+// app.use(
+//   `/${LOCAL_MEDIA_PREFIX}/*`,
+//   serveStatic({
+//     async getContent(p, c) {
+//       const fileName = p.split('/').pop();
+//       if (!fileName) {
+//         return null;
+//       }
+//       const filePath = path.join(process.cwd(), LOCAL_UPLOAD_DIR, fileName);
 
-      const file = await getFileByPath(filePath);
+//       const file = await getFileByPath(filePath);
 
-      if (!file) {
-        return null;
-      }
+//       if (!file) {
+//         return null;
+//       }
 
-      c.header('Content-Type', file.mime);
-      c.header('Cache-Control', 'public, max-age=31536000');
-      c.header('Content-Length', file.size.toString());
-      c.header('Content-Disposition', `attachment; filename="${fileName}"`);
+//       c.header('Content-Type', file.mime);
+//       c.header('Cache-Control', 'public, max-age=31536000');
+//       c.header('Content-Length', file.size.toString());
+//       c.header('Content-Disposition', `attachment; filename="${fileName}"`);
 
-      return c.body(new Uint8Array(file.data));
-    },
-  }),
-);
+//       return c.body(new Uint8Array(file.data));
+//     },
+//   }),
+// );
 
 // Define routes and error handling
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
