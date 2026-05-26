@@ -5,7 +5,6 @@ import moment from 'moment';
 import Image from 'next/image';
 import { useRouter } from 'nextjs-toploader/app';
 import React from 'react';
-import Moment from 'react-moment';
 
 import DataTable from '@/components/datatable';
 import { Badge } from '@/components/ui/badge';
@@ -110,9 +109,7 @@ const PostsTable = () => {
             key: 'publishedAt',
             width: 150,
             render: (value) => (
-              <Moment format="DD/MM/YYYY" className="text-[13px]">
-                {value}
-              </Moment>
+              <div className="text-[13px]">{moment(value).format('DD/MM/YYYY')}</div>
             ),
             sortable: true,
           },
@@ -121,9 +118,7 @@ const PostsTable = () => {
             key: 'updatedAt',
             width: 150,
             render: (value) => (
-              <Moment format="DD/MM/YYYY" className="text-[13px]">
-                {value}
-              </Moment>
+              <div className="text-[13px]">{moment(value).format('DD/MM/YYYY')}</div>
             ),
             sortable: true,
           },

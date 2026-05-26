@@ -3,7 +3,7 @@ import { useCredits, useUserSubscription } from '@/app/admin/profile/_services/p
 import { Loader } from 'lucide-react';
 import { useRouter } from 'nextjs-toploader/app';
 import React from 'react';
-import Moment from 'react-moment';
+import moment from 'moment';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -56,9 +56,7 @@ const PlanOverview = () => {
               <Skeleton className="h-5 w-24" />
             ) : (
               <div className="text-ms font-semibold">
-                <Moment format="MMM DD, YYYY">
-                  {subscription?.currentPeriodEnd || nextMonthDate()}
-                </Moment>
+                {moment(subscription?.currentPeriodEnd || nextMonthDate()).format('MMM DD, YYYY')}
               </div>
             )}
           </div>

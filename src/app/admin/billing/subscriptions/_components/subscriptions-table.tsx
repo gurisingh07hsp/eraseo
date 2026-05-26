@@ -2,7 +2,7 @@
 
 import { SubscriptionStatus } from '@prisma/client';
 import React from 'react';
-import Moment from 'react-moment';
+import moment from 'moment';
 
 import DataTable from '@/components/datatable';
 import { Badge } from '@/components/ui/badge';
@@ -76,13 +76,13 @@ const SubscriptionsTable = () => {
             render: (_, row) => {
               return (
                 <div className="text-sm">
-                  <Moment format="DD/MM/YYYY" className="text-[13px]">
-                    {row.currentPeriodStart}
-                  </Moment>{' '}
+                  <div className="text-[13px]">
+                    {moment(row.currentPeriodStart).format('DD/MM/YYYY')}
+                  </div>
                   -{' '}
-                  <Moment format="DD/MM/YYYY" className="text-[13px]">
-                    {row.currentPeriodEnd}
-                  </Moment>
+                  <div className="text-[13px]">
+                    {moment(row.currentPeriodEnd).format('DD/MM/YYYY')}
+                  </div>
                 </div>
               );
             },
@@ -92,11 +92,7 @@ const SubscriptionsTable = () => {
             key: 'createdAt',
             sortable: true,
             render: (value) => {
-              return (
-                <Moment format="DD/MM/YYYY" className="text-[13px]">
-                  {value}
-                </Moment>
-              );
+              return <div className="text-[13px]">{moment(value).format('DD/MM/YYYY')}</div>;
             },
           },
         ]}

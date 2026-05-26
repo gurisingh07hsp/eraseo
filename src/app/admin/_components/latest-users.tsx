@@ -2,7 +2,7 @@
 
 import { Loader } from 'lucide-react';
 import React from 'react';
-import Moment from 'react-moment';
+import moment from 'moment';
 
 import { Badge } from '@/components/ui/badge';
 import {
@@ -61,9 +61,9 @@ const LatestUsers = () => {
                     </Badge>
                   </TableCell>
                   <TableCell>
-                    <Moment format="DD/MM/YYYY" className="text-[13px]">
-                      {user.createdAt}
-                    </Moment>
+                    <span className="text-[13px]">
+                      {moment(user.createdAt).format('DD/MM/YYYY')}
+                    </span>
                   </TableCell>
                 </TableRow>
               ))

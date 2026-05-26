@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import Moment from 'react-moment';
+import moment from 'moment';
 
 const TimeFormat = ({ time }: { time: string | Date }) => {
-  return <Moment format="MMM DD, YYYY">{time}</Moment>;
+  return <span>{moment(time).format('MMM DD, YYYY')}</span>;
 };
 
 export default TimeFormat;

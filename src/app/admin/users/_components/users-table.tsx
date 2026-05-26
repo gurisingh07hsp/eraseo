@@ -3,7 +3,7 @@
 import { UserRole } from '@prisma/client';
 import { Trash2 } from 'lucide-react';
 import React from 'react';
-import Moment from 'react-moment';
+import moment from 'moment';
 
 import DataTable from '@/components/datatable';
 import { Badge } from '@/components/ui/badge';
@@ -95,9 +95,7 @@ const UsersTable = () => {
             title: 'Created At',
             key: 'createdAt',
             render: (value) => (
-              <Moment format="DD/MM/YYYY" className="text-[13px]">
-                {value}
-              </Moment>
+              <div className="text-[13px]">{moment(value).format('DD/MM/YYYY')}</div>
             ),
             sortable: true,
           },
