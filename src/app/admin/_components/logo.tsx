@@ -18,7 +18,7 @@ const Logo = ({
 }) => {
   const settings = useSettings();
   const applicationName = settings?.general.applicationName;
-  const logo = settings?.general?.logo;
+  const logo = '/images/backeraselogo.png';
   const darkLogo = settings?.general?.darkLogo;
   const iconLogo = settings?.general?.iconLogo;
   const iconLogoDark = settings?.general?.iconLogoDark;
@@ -26,27 +26,27 @@ const Logo = ({
   return (
     <Link
       href={href || '/'}
-      className={cn('flex items-center justify-start text-xl font-semibold', className)}
+      className={cn('flex items-center justify-start text-xl font-semibold')}
     >
       {!iconOnly ? (
         <>
           {logo ? (
             <>
               <Image
-                className={cn('dark:hidden object-contain h-8 w-auto')}
-                src={logo}
+                className={cn('dark:hidden object-contain w-24 h-20 lg:w-48 lg:h-24')}
+                src={'/images/backeraselogo.png'}
                 alt={applicationName || ''}
                 unoptimized
                 height={100}
                 width={300}
               />
               <Image
-                className={cn('hidden dark:block object-contain h-8 w-auto')}
-                src={darkLogo || logo}
+                className={cn('hidden dark:block object-contain w-24 h-20 lg:w-48 lg:h-24')}
+                src={'/images/backeraselogo.png'}
                 alt={applicationName || ''}
                 unoptimized
                 height={100}
-                width={300}
+                width={180}
               />
             </>
           ) : (
@@ -58,20 +58,20 @@ const Logo = ({
           {iconLogo || logo ? (
             <>
               <Image
-                className={cn('dark:hidden size-8 object-contain')}
-                src={iconLogo || logo || ''}
+                className={cn('dark:hidden object-contain')}
+                src={'/images/backeraselogo.png'}
                 alt={applicationName || ''}
                 unoptimized
                 height={100}
                 width={100}
               />
               <Image
-                className={cn('hidden dark:block size-8 object-contain')}
-                src={iconLogoDark || iconLogo || darkLogo || logo || ''}
+                className={cn('hidden dark:block object-contain w-24 h-20 lg:w-48 lg:h-24')}
+                src={'/images/backeraselogo.png'}
                 alt={applicationName || ''}
                 unoptimized
-                height={100}
-                width={100}
+                height={300}
+                width={300}
               />
             </>
           ) : (

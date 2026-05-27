@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 
 import { FaqSection } from './_components/faqs';
 import BgRemoveBox from './upload/_components/bg-remove-box';
+import Testimonials from './_components/Testimonial';
 
 const howToUseItems = [
   {
@@ -140,7 +141,7 @@ const HomePage = async () => {
                 <div className="flex-1 flex flex-col items-start justify-start">
                   <h2 className="text-xl font-semibold">{item.title}</h2>
                   <p className="text-md text-muted-foreground mt-5">{item.description}</p>
-                  <Button className="mt-7" asChild>
+                  <Button className="mt-7 bg-[#1b17ff]" asChild>
                     <Link href="/upload">Try it now</Link>
                   </Button>
                 </div>
@@ -158,7 +159,7 @@ const HomePage = async () => {
           </div>
         </div>
       </div>
-      <div className="bg-card py-14 md:py-20">
+      {/* <div className="bg-card py-14 md:py-20">
         <div className="container">
           <h2 className="font-bold text-xl text-center sm:text-3xl">What our users are saying</h2>
           <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-14">
@@ -167,7 +168,8 @@ const HomePage = async () => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
+      <Testimonials />
       <FaqSection />
     </div>
   );

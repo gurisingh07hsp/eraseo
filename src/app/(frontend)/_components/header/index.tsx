@@ -37,9 +37,9 @@ const Header = ({ initalUser }: { initalUser?: UserResponse }) => {
         'sticky transition-all z-50 duration-300 border-b border-border/60 top-0 bg-background/90 backdrop-blur-sm',
       )}
     >
-      <div className="container flex h-20 items-center justify-between">
-        <Logo href="/" className="[&>img]:h-9" />
+      <div className="mx-2 flex h-20 items-center justify-between">
         <HeaderMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        <Logo href="/" className="[&>img]:h-9 me-56" />
         <div className="items-center gap-3 flex">
           <ThemeToggle />
           {user ? (

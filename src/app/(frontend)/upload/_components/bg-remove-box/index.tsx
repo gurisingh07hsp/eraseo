@@ -169,7 +169,12 @@ const BgRemoveBox = () => {
           </>
         ) : (
           <>
-            <Button type="button" asChild size="lg" className="h-12 px-4 font-semibold rounded-xl">
+            <Button
+              type="button"
+              asChild
+              size="lg"
+              className="h-12 px-4 font-semibold rounded-xl bg-[#1b17ff]"
+            >
               <label htmlFor="file-upload">
                 <div className="bg-accent/10 rounded-full p-1">
                   <PlusIcon className="stroke-[3px]" />

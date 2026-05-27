@@ -36,16 +36,16 @@ export default function HeaderMenu({
 
   return (
     <>
-      <div className="hidden lg:flex">
+      <div className="hidden lg:flex border rounded-4xl p-1">
         {menuItems.map((item) => (
           <div key={item.title} className="relative">
             <Link
               href={item.href}
               key={item.href}
               className={cn(
-                'flex h-full items-center px-4 py-2 transition text-[15px] font-medium hover:text-primary',
+                'flex h-full items-center px-4 py-2 transition text-[15px] font-medium rounded-4xl',
                 {
-                  'text-primary': pathname === item.href,
+                  'bg-[#1b17ff]': pathname === item.href,
                 },
               )}
             >
