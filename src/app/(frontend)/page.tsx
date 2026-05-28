@@ -3,7 +3,7 @@ import { EraserIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import React, { cache } from 'react';
+import { cache } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Testimonial } from '@/components/ui/testimonial-card';
@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils';
 import { FaqSection } from './_components/faqs';
 import BgRemoveBox from './upload/_components/bg-remove-box';
 import Testimonials from './_components/Testimonial';
+import HeroImages from './_components/HeroImages';
 
 const howToUseItems = [
   {
@@ -83,33 +84,7 @@ const HomePage = async () => {
 
   return (
     <div className="py-16 sm:py-24 space-y-14 sm:space-y-20">
-      <div>
-        <div className="container relative flex flex-col items-center">
-          <Image
-            src="/images/demo-image-1.png"
-            className="absolute top-[5%] right-5 hidden xl:block"
-            height={200}
-            width={200}
-            alt="image"
-          />
-          <Image
-            src="/images/demo-image-2.png"
-            className="absolute left-5 top-[50%] hidden xl:block"
-            height={150}
-            width={150}
-            alt="image"
-          />
-          <h1 className="z-[1] text-balance py-4 text-center text-3xl font-semibold leading-none tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-            <EraserIcon className="inline size-7 sm:size-9 md:size-11 lg:size-14 mb-2 mr-2 stroke-3" />{' '}
-            Background Remover
-          </h1>
-          <p className="z-[1] mb-12 text-center text-md tracking-tight text-muted-foreground md:text-xl max-w-2xl">
-            Remove backgrounds from images in seconds with our AI-powered background remover. No
-            design skills needed!
-          </p>
-          <BgRemoveBox />
-        </div>
-      </div>
+      <HeroImages />
       <div className="bg-card py-14 md:py-20">
         <div className="container">
           <h2 className="font-bold text-xl text-center sm:text-3xl">How to remove a background?</h2>

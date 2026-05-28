@@ -26,14 +26,14 @@ const Logo = ({
   return (
     <Link
       href={href || '/'}
-      className={cn('flex items-center justify-start text-xl font-semibold')}
+      className={cn('flex items-center lg:me-80 justify-start text-xl font-semibold')}
     >
       {!iconOnly ? (
         <>
           {logo ? (
             <>
               <Image
-                className={cn('dark:hidden object-contain w-24 h-20 lg:w-48 lg:h-24')}
+                className={cn('dark:hidden object-contain w-32 h-20 lg:w-48 lg:h-24')}
                 src={'/images/backeraselogo.png'}
                 alt={applicationName || ''}
                 unoptimized
@@ -41,7 +41,7 @@ const Logo = ({
                 width={300}
               />
               <Image
-                className={cn('hidden dark:block object-contain w-24 h-20 lg:w-48 lg:h-24')}
+                className={cn('hidden dark:block object-contain w-32 h-20 lg:w-48 lg:h-24')}
                 src={'/images/backeraselogo.png'}
                 alt={applicationName || ''}
                 unoptimized
@@ -58,7 +58,7 @@ const Logo = ({
           {iconLogo || logo ? (
             <>
               <Image
-                className={cn('dark:hidden object-contain')}
+                className={cn('dark:hidden object-contain w-32 h-20 lg:w-48 lg:h-24')}
                 src={'/images/backeraselogo.png'}
                 alt={applicationName || ''}
                 unoptimized
@@ -66,7 +66,7 @@ const Logo = ({
                 width={100}
               />
               <Image
-                className={cn('hidden dark:block object-contain w-24 h-20 lg:w-48 lg:h-24')}
+                className={cn('hidden dark:block object-contain w-32 h-20 lg:w-48 lg:h-24')}
                 src={'/images/backeraselogo.png'}
                 alt={applicationName || ''}
                 unoptimized

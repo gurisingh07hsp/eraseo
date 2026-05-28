@@ -43,6 +43,7 @@
 // export default Footer;
 
 import Logo from '@/app/admin/_components/logo';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const Footer = () => {
@@ -54,32 +55,19 @@ const Footer = () => {
 
   return (
     <footer className="w-full border-t text-white">
-      <div className="mx-auto max-w-7xl px-6 py-12">
+      <div className="mx-auto max-w-7xl px-6 lg:py-8">
         {/* Top Section */}
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           {/* Brand Section */}
           <div className="flex flex-col gap-5 max-w-xs">
-            {/* Logo */}
-            <Logo href="/" className="[&>img]:h-9 me-56" />
-            {/* <Link href="/" className="flex items-center gap-2.5 group">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 28 28"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="shrink-0"
-              >
-                <rect width="4" height="28" rx="2" fill="#111827" />
-                <rect x="6" y="4" width="4" height="20" rx="2" fill="#111827" />
-                <rect x="12" y="8" width="4" height="12" rx="2" fill="#111827" />
-                <rect x="18" y="4" width="4" height="20" rx="2" fill="#111827" />
-                <rect x="24" width="4" height="28" rx="2" fill="#111827" />
-              </svg>
-              <span className="text-lg font-semibold tracking-tight text-gray-900 group-hover:text-gray-600 transition-colors duration-200">
-                Shadcnblocks.com
-              </span>
-            </Link> */}
+            <Image
+              className="object-contain w-32 h-20 lg:w-48 lg:h-24"
+              src={'/images/backeraselogo.png'}
+              alt={'logo'}
+              unoptimized
+              height={100}
+              width={300}
+            />
 
             {/* Tagline */}
             <p className="text-sm leading-relaxed text-gray-500">
