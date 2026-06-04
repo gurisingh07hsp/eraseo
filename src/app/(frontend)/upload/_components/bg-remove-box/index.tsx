@@ -43,10 +43,10 @@ const BgRemoveBox = () => {
       onDragOver={(e) => e.preventDefault()}
     >
       {!isLoading && image && (
-        <div className="flex items-center justify-between gap-3 mb-4 px-6 pt-6">
-          <div className="bg-accent/50 backdrop-blur-sm rounded-xl p-1 border border-border/50">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-4 px-4 sm:px-6 pt-4 sm:pt-6">
+          <div className="bg-accent/50 backdrop-blur-sm rounded-xl p-1 border border-border/50 flex w-full sm:w-auto">
             <Button
-              className={cn('h-9 px-4 rounded-lg transition-all', {
+              className={cn('h-8 sm:h-9 px-3 sm:px-4 flex-1 sm:flex-none rounded-lg transition-all', {
                 'shadow-sm bg-card text-foreground': showOrignal,
                 'text-muted-foreground hover:text-foreground': !showOrignal,
               })}
@@ -56,7 +56,7 @@ const BgRemoveBox = () => {
               Before
             </Button>
             <Button
-              className={cn('h-9 px-4 rounded-lg transition-all', {
+              className={cn('h-8 sm:h-9 px-3 sm:px-4 flex-1 sm:flex-none rounded-lg transition-all', {
                 'shadow-sm bg-card text-foreground': !showOrignal,
                 'text-muted-foreground hover:text-foreground': showOrignal,
               })}
@@ -67,7 +67,7 @@ const BgRemoveBox = () => {
             </Button>
           </div>
           <Button
-            className="rounded-xl h-10 px-5 font-semibold bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all"
+            className="rounded-xl h-10 w-full sm:w-auto px-5 font-semibold bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all"
             onClick={async () => {
               if (!image) return;
 
@@ -137,14 +137,14 @@ const BgRemoveBox = () => {
                 type="button"
                 asChild
                 size="lg"
-                className="relative h-14 px-8 font-bold text-lg rounded-2xl bg-primary hover:bg-primary/90 shadow-2xl transition-all hover:scale-[1.02] active:scale-[0.98]"
-              >
-                <label htmlFor="file-upload" className="cursor-pointer flex items-center gap-3">
-                  <div className="bg-white/20 rounded-lg p-1">
-                    <PlusIcon className="size-6 stroke-[3px]" />
-                  </div>
-                  Start from a photo
-                </label>
+              className="relative h-11 sm:h-14 px-6 sm:px-8 font-bold text-base sm:text-lg rounded-xl sm:rounded-2xl bg-primary hover:bg-primary/90 shadow-2xl transition-all hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <label htmlFor="file-upload" className="cursor-pointer flex items-center gap-2 sm:gap-3">
+                <div className="bg-white/20 rounded-lg p-0.5 sm:p-1">
+                  <PlusIcon className="size-5 sm:size-6 stroke-[3px]" />
+                </div>
+                Start from a photo
+              </label>
               </Button>
             </div>
             <input
@@ -155,9 +155,9 @@ const BgRemoveBox = () => {
               className="hidden"
               ref={inputRef}
             />
-            <div className="flex flex-col items-center gap-2">
-              <p className="font-bold text-xl text-foreground">Or drop an image here</p>
-              <p className="text-sm text-muted-foreground font-medium">Supports JPG, PNG, WEBP up to 10MB</p>
+            <div className="flex flex-col items-center gap-2 text-center">
+              <p className="font-bold text-lg sm:text-xl text-foreground">Or drop an image here</p>
+              <p className="text-xs sm:text-sm text-muted-foreground font-medium">Supports JPG, PNG, WEBP up to 10MB</p>
             </div>
           </div>
         )}
