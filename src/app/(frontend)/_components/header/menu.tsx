@@ -45,7 +45,7 @@ export default function HeaderMenu({
               className={cn(
                 'flex h-full items-center px-4 py-2 transition text-[15px] font-medium rounded-4xl',
                 {
-                  'bg-[#1b17ff] text-white': pathname === item.href,
+                  'bg-primary text-white': pathname === item.href,
                 },
               )}
             >

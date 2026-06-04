@@ -1,8 +1,9 @@
 'use client';
-import { EraserIcon } from 'lucide-react';
+import { EraserIcon, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
 import BgRemoveBox from '../upload/_components/bg-remove-box';
+import { motion } from 'motion/react';
 
 const HeroImages = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -38,12 +39,12 @@ const HeroImages = () => {
 
       // Image 1 — top right, depth 0.6 (subtle)
       if (img1Ref.current) {
-        img1Ref.current.style.transform = `translate(${-x * 30}px, ${-y * 30}px)`;
+        img1Ref.current.style.transform = `translate(${-x * 30}px, ${-y * 30}px) rotate(${x * 5}deg)`;
       }
 
       // Image 2 — left middle, depth slightly stronger
       if (img2Ref.current) {
-        img2Ref.current.style.transform = `translate(${-x * 45}px, ${-y * 45}px)`;
+        img2Ref.current.style.transform = `translate(${-x * 45}px, ${-y * 45}px) rotate(${-x * 8}deg)`;
       }
 
       rafRef.current = requestAnimationFrame(tick);
@@ -57,35 +58,87 @@ const HeroImages = () => {
       cancelAnimationFrame(rafRef.current);
     };
   }, []);
+
   return (
-    <div>
+    <div className="relative overflow-hidden pt-10 pb-16">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[10%] right-[-5%] w-[35%] h-[35%] bg-blue-500/10 blur-[100px] rounded-full" />
+      </div>
+
       <div ref={containerRef} className="container relative flex flex-col items-center">
+        {/* Floating parallax images with improved styling */}
         <div
           ref={img1Ref}
-          className="absolute top-[5%] right-5 hidden xl:block"
+          className="absolute top-[5%] right-0 hidden xl:block z-0"
           style={{ willChange: 'transform', transition: 'transform 0.05s linear' }}
         >
-          <Image src="/images/demo-image-1.png" height={200} width={200} alt="image" />
+          <div className="relative p-2 bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl border border-border/50 rotate-6 overflow-hidden">
+            <Image
+              src="/images/demo-image-1.png"
+              height={200}
+              width={200}
+              alt="image"
+              className="rounded-xl"
+            />
+          </div>
         </div>
 
-        {/* Image 2 — position unchanged, wrapped in ref div for parallax */}
         <div
           ref={img2Ref}
-          className="absolute left-5 top-[50%] hidden xl:block"
+          className="absolute left-0 top-[40%] hidden xl:block z-0"
           style={{ willChange: 'transform', transition: 'transform 0.05s linear' }}
         >
-          <Image src="/images/demo-image-2.png" height={150} width={150} alt="image" />
+          <div className="relative p-2 bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl border border-border/50 -rotate-12 overflow-hidden">
+            <Image
+              src="/images/demo-image-2.png"
+              height={180}
+              width={180}
+              alt="image"
+              className="rounded-xl"
+            />
+          </div>
         </div>
 
-        <h1 className="z-[1] text-balance py-4 text-center text-3xl font-semibold leading-none tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-          <EraserIcon className="inline size-7 sm:size-9 md:size-11 lg:size-14 mb-2 mr-2 stroke-3" />{' '}
-          Background Remover
-        </h1>
-        <p className="z-[1] mb-12 text-center text-md tracking-tight text-muted-foreground md:text-xl max-w-2xl">
-          Remove backgrounds from images in seconds with our AI-powered background remover. No
-          design skills needed!
-        </p>
-        <BgRemoveBox />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="z-[1] flex flex-col items-center"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6 border border-primary/20">
+            <Sparkles className="size-3" />
+            <span>AI-POWERED MAGIC</span>
+          </div>
+
+          <h1 className="text-balance text-center text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mb-6">
+            <span className="inline-flex items-center">
+              <EraserIcon className="size-8 sm:size-10 md:size-12 lg:size-14 mr-4 text-primary animate-pulse" />
+            </span>
+            Remove Backgrounds <br className="hidden sm:block" />
+            <span className="text-primary bg-clip-text">with One Click</span>
+          </h1>
+
+          <p className="mb-12 text-center text-base tracking-tight text-muted-foreground md:text-lg max-w-2xl text-balance">
+            Professional-grade AI background removal in seconds. Perfect for e-commerce,
+            photographers, and creators. No complex tools required.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full flex justify-center z-10"
+        >
+          <div className="relative group w-full max-w-[650px]">
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary/40 to-blue-600/40 rounded-[2rem] blur-2xl opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+            <div className="relative bg-card rounded-3xl overflow-hidden shadow-2xl border border-border/50">
+              <BgRemoveBox />
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -37,98 +37,126 @@ const Header = ({ initalUser }: { initalUser?: UserResponse }) => {
         'sticky transition-all z-50 duration-300 border-b border-border/60 top-0 bg-background/90 backdrop-blur-sm',
       )}
     >
-      <div className="lg:mx-14 flex h-20 items-center justify-between">
-        <HeaderMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-        <Logo href="/" className="[&>img]:h-9" />
-        <div className="items-center gap-3 flex border py-1 px-1 rounded-xl">
-          <ThemeToggle />
-          {user ? (
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-2 cursor-pointer">
-                <Avatar
-                  className={cn('ease-snappy transition-[width]')}
-                  name={user?.name || ''}
-                  src={user?.avatar || undefined}
-                />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                className="w-64 rounded-3xl shadow-lg p-6"
-                side="bottom"
-                align="end"
-                sideOffset={8}
-              >
-                <DropdownMenuLabel className="p-0 font-normal">
-                  <div className="flex items-center gap-2 px-1 py-1.5 pb-5 text-left text-sm">
-                    <Avatar src={user?.avatar || undefined} name={user?.name || ''} />
-                    <div className="grid flex-1 text-left text-sm leading-tight">
-                      <span className="truncate font-semibold">{user?.name}</span>
-                      <span className="truncate text-xs">{user?.email}</span>
-                    </div>
-                  </div>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuLabel>
-                  {creditsLoading ? (
-                    <Skeleton className="h-6 w-full rounded-md" />
-                  ) : (
-                    <>
-                      <div className="flex items-center gap-2 text-left text-sm">
-                        <span className="text-lg font-semibold text-primary">{credits}</span>
-                        <p className="font-semibold">Credits</p>
+      <div className="container mx-auto flex h-20 items-center px-4 lg:px-14">
+        {/* Left Section */}
+        <div className="flex flex-1 justify-start">
+          <HeaderMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        </div>
+
+        {/* Center Section - Logo */}
+        <div className="flex flex-shrink-0 justify-center">
+          <Logo href="/" className="[&>img]:h-9" />
+        </div>
+
+        {/* Right Section */}
+        <div className="flex flex-1 justify-end items-center gap-3">
+          <div className="items-center gap-1.5 hidden lg:flex border py-1 px-1 rounded-4xl">
+            <ThemeToggle />
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-2 cursor-pointer outline-none">
+                  <Avatar
+                    className={cn('ease-snappy transition-[width]')}
+                    name={user?.name || ''}
+                    src={user?.avatar || undefined}
+                  />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  className="w-64 rounded-3xl shadow-lg p-6"
+                  side="bottom"
+                  align="end"
+                  sideOffset={8}
+                >
+                  <DropdownMenuLabel className="p-0 font-normal">
+                    <div className="flex items-center gap-2 px-1 py-1.5 pb-5 text-left text-sm">
+                      <Avatar src={user?.avatar || undefined} name={user?.name || ''} />
+                      <div className="grid flex-1 text-left text-sm leading-tight">
+                        <span className="truncate font-semibold">{user?.name}</span>
+                        <span className="truncate text-xs">{user?.email}</span>
                       </div>
-                    </>
-                  )}
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuGroup className="py-3 space-y-2">
-                  <DropdownMenuItem
-                    className="font-medium !bg-transparent hover:!text-primary"
-                    asChild
-                  >
-                    <Link href="/profile">
-                      <IconUser className="size-5" />
-                      My Account
-                    </Link>
-                  </DropdownMenuItem>
-                  {user.role === 'admin' && (
+                    </div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuLabel>
+                    {creditsLoading ? (
+                      <Skeleton className="h-6 w-full rounded-md" />
+                    ) : (
+                      <>
+                        <div className="flex items-center gap-2 text-left text-sm">
+                          <span className="text-lg font-semibold text-primary">{credits}</span>
+                          <p className="font-semibold">Credits</p>
+                        </div>
+                      </>
+                    )}
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuGroup className="py-3 space-y-2">
                     <DropdownMenuItem
-                      className="font-medium !bg-transparent hover:!text-primary"
+                      className="font-medium !bg-transparent hover:!text-primary cursor-pointer"
                       asChild
                     >
-                      <Link href="/admin">
-                        <IconShieldHalfFilled className="size-5" />
-                        Admin Dashboard
+                      <Link href="/profile">
+                        <IconUser className="size-5" />
+                        My Account
                       </Link>
                     </DropdownMenuItem>
+                    {user.role === 'admin' && (
+                      <DropdownMenuItem
+                        className="font-medium !bg-transparent hover:!text-primary cursor-pointer"
+                        asChild
+                      >
+                        <Link href="/admin">
+                          <IconShieldHalfFilled className="size-5" />
+                          Admin Dashboard
+                        </Link>
+                      </DropdownMenuItem>
+                    )}
+                    <DropdownMenuItem
+                      className="!text-destructive font-medium !bg-transparent cursor-pointer"
+                      onClick={logout}
+                    >
+                      <IconLogout className="!text-destructive size-5" />
+                      Logout
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <>
+                <Link
+                  className={cn(
+                    buttonVariants({ variant: 'ghost' }),
+                    'rounded-4xl px-5 font-semibold text-[15px]',
                   )}
-                  <DropdownMenuItem
-                    className="!text-destructive font-medium !bg-transparent"
-                    onClick={logout}
-                  >
-                    <IconLogout className="!text-destructive size-5" />
-                    Logout
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          ) : (
-            <>
-              <Link className={buttonVariants({ variant: 'outline' })} href="/login">
-                Login
-              </Link>
-              <Link className={cn(buttonVariants(), 'hidden md:flex')} href="/signup">
-                SignUp
-              </Link>
-            </>
-          )}
-          <Button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            size="icon"
-            variant="ghost"
-            className="lg:hidden"
-          >
-            <AlignJustifyIcon className="!size-6 stroke-[1.5]" />
-          </Button>
+                  href="/login"
+                >
+                  Login
+                </Link>
+                <Link
+                  className={cn(
+                    buttonVariants(),
+                    'rounded-4xl px-5 font-semibold text-[15px]',
+                  )}
+                  href="/signup"
+                >
+                  SignUp
+                </Link>
+              </>
+            )}
+          </div>
+
+          {/* Mobile Theme Toggle & Menu Button */}
+          <div className="flex lg:hidden items-center gap-2">
+            <ThemeToggle />
+            <Button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              size="icon"
+              variant="ghost"
+              className="rounded-full"
+            >
+              <AlignJustifyIcon className="!size-6 stroke-[1.5]" />
+            </Button>
+          </div>
         </div>
       </div>
     </header>

@@ -1,5 +1,5 @@
 import '@/assets/styles/globals.css';
-import { fontGeist } from '@/config/fonts';
+import { fontInter } from '@/config/fonts';
 import settingServices from '@/server/settings/setting-services';
 import { Metadata } from 'next';
 import { cache } from 'react';
@@ -46,7 +46,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html suppressHydrationWarning lang="en">
       <head />
-      <body suppressHydrationWarning className={cn('antialiased', fontGeist.variable)}>
+      <body suppressHydrationWarning className={cn('antialiased', fontInter.variable)}>
         <Providers settings={settings}>{children}</Providers>
       </body>
     </html>

@@ -3,6 +3,7 @@
 import { ALLOWED_IMAGE_TYPES } from '@/config/constants';
 import { ChevronDownIcon, Download, Loader2, PlusIcon, XIcon } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 import { Badge } from '@/components/ui/badge';
@@ -37,17 +38,17 @@ const BgRemoveBox = () => {
 
   return (
     <div
-      className="z-[1] max-w-full w-[650px]"
+      className="z-[1] w-full"
       onDrop={onDrop}
       onDragOver={(e) => e.preventDefault()}
     >
       {!isLoading && image && (
-        // {!isLoading && image?.result && (
-        <div className="flex items-center justify-between gap-3 mb-4">
-          <div className="bg-accent rounded-md p-1">
+        <div className="flex items-center justify-between gap-3 mb-4 px-6 pt-6">
+          <div className="bg-accent/50 backdrop-blur-sm rounded-xl p-1 border border-border/50">
             <Button
-              className={cn('h-8', {
-                'shadow-md !bg-card': showOrignal,
+              className={cn('h-9 px-4 rounded-lg transition-all', {
+                'shadow-sm bg-card text-foreground': showOrignal,
+                'text-muted-foreground hover:text-foreground': !showOrignal,
               })}
               variant="ghost"
               onClick={() => setShowOrignal(true)}
@@ -55,8 +56,9 @@ const BgRemoveBox = () => {
               Before
             </Button>
             <Button
-              className={cn('h-8', {
-                'shadow-md !bg-card': !showOrignal,
+              className={cn('h-9 px-4 rounded-lg transition-all', {
+                'shadow-sm bg-card text-foreground': !showOrignal,
+                'text-muted-foreground hover:text-foreground': showOrignal,
               })}
               variant="ghost"
               onClick={() => setShowOrignal(false)}
@@ -65,123 +67,86 @@ const BgRemoveBox = () => {
             </Button>
           </div>
           <Button
+            className="rounded-xl h-10 px-5 font-semibold bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all"
             onClick={async () => {
               if (!image) return;
 
               try {
                 const response = await fetch(image);
                 const blob = await response.blob();
-
                 const url = window.URL.createObjectURL(blob);
-
                 const link = document.createElement('a');
                 link.href = url;
                 link.download = 'removed-background.png';
-
                 document.body.appendChild(link);
                 link.click();
-
                 document.body.removeChild(link);
-
                 window.URL.revokeObjectURL(url);
               } catch (error) {
                 console.error('Download failed:', error);
               }
             }}
           >
-            Download <Download />
+            Download <Download className="ml-2 size-4" />
           </Button>
-          {/* <DropdownMenuContent className="w-[250px] rounded-2xl shadow-lg p-3 gap-2 flex flex-col">
-              <DropdownMenuItem
-                onClick={() => {
-                  window.open(image, '_blank');
-                }}
-                className="flex items-center rounded-full px-5 transition-all py-2 pr-4"
-              >
-                <div>
-                  <p className="text-[13px] font-semibold">Preview</p>
-                </div>
-                <Badge className="ml-auto" variant="secondary">
-                  Free
-                </Badge>
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                onClick={(e) => {
-                  e.stopPropagation();
-                  e.preventDefault();
-                  downloadPremium();
-                }}
-                className="flex items-center rounded-full px-5 transition-all py-2 pr-4"
-              >
-                <div>
-                  <p className="text-[13px] font-semibold">Max Quality</p>
-                </div>
-                <Badge
-                  className="ml-auto bg-primary text-primary-foreground h-6 w-17"
-                  variant="default"
-                >
-                  {premiumDownloadMutation.isPending ? (
-                    <Loader2 className="animate-spin text-primary-foreground size-4" />
-                  ) : (
-                    'Premium'
-                  )}
-                </Badge>
-              </DropdownMenuItem>
-            </DropdownMenuContent> */}
         </div>
       )}
-      <div className="flex relative items-center flex-col justify-center gap-5 border-2 shadow-xl border-card dark:border-input rounded-2xl bg-[repeating-conic-gradient(var(--accent)_0_25%,transparent_0_50%)] bg-[length:20px_20px] w-full h-[300px] sm:h-[450px]">
+      <div className={cn(
+        "flex relative items-center flex-col justify-center gap-6 border-none w-full min-h-[350px] sm:min-h-[480px] transition-all",
+        !localimage?.preview && "bg-[repeating-conic-gradient(var(--color-muted)_0_25%,transparent_0_50%)] bg-[length:24px_24px] hover:bg-[length:20px_20px] duration-500"
+      )}>
         {localimage?.preview ? (
-          <>
+          <div className="relative w-full h-full flex items-center justify-center p-6 min-h-[350px] sm:min-h-[480px]">
             <Image
               src={showOrignal || !image ? localimage?.preview : image}
               alt="image"
-              className="object-contain w-auto h-full"
+              className="object-contain w-full h-full max-h-[400px] drop-shadow-2xl"
               unoptimized
               width={1000}
               height={1000}
             />
-            {/* <Image
-              src={showOrignal || !image?.result?.preview ? image.preview : image?.result?.preview}
-              alt="image"
-              className="object-contain w-auto h-full"
-              unoptimized
-              width={1000}
-              height={1000}
-            /> */}
             <Button
-              variant="outline"
-              className="absolute top-4 right-4 p-0 size-8 z-[1]"
+              variant="destructive"
+              size="icon"
+              className="absolute top-4 right-4 rounded-full shadow-lg hover:scale-110 transition-transform"
               onClick={onClear}
             >
-              <XIcon className="stroke-[3px]" />
+              <XIcon className="size-5" />
             </Button>
             {isLoading && (
-              <div className="absolute z-[2] bg-background/60 inset-0 flex flex-col justify-center items-center">
-                <div className="bg-background rounded-md p-2">
-                  <Loader2 className="animate-spin text-primary size-7" />
+              <div className="absolute z-[2] bg-background/80 backdrop-blur-sm inset-0 flex flex-col justify-center items-center">
+                <div className="bg-primary/10 rounded-full p-4 animate-pulse">
+                  <Loader2 className="animate-spin text-primary size-8" />
                 </div>
-                <p className="text-xs font-semibold mt-2 text-center drop-shadow-md">
-                  {progress < 100 ? `Uploading ${progress}%` : 'Processing...'}
-                </p>
+                <div className="mt-4 space-y-1 text-center">
+                  <p className="text-sm font-bold text-foreground">
+                    {progress < 100 ? 'Uploading...' : 'Magically removing background...'}
+                  </p>
+                  <p className="text-xs text-muted-foreground font-medium">
+                    {progress}% complete
+                  </p>
+                </div>
               </div>
             )}
-          </>
+          </div>
         ) : (
-          <>
-            <Button
-              type="button"
-              asChild
-              size="lg"
-              className="h-12 px-4 font-semibold rounded-xl bg-[#1b17ff]"
-            >
-              <label htmlFor="file-upload">
-                <div className="bg-accent/10 rounded-full p-1">
-                  <PlusIcon className="stroke-[3px]" />
-                </div>
-                Start from a photo
-              </label>
-            </Button>
+          <div className="flex flex-col items-center gap-6 p-8">
+            <div className="group relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+              <Button
+                type="button"
+                asChild
+                size="lg"
+                className="relative h-14 px-8 font-bold text-lg rounded-2xl bg-primary hover:bg-primary/90 shadow-2xl transition-all hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <label htmlFor="file-upload" className="cursor-pointer flex items-center gap-3">
+                  <div className="bg-white/20 rounded-lg p-1">
+                    <PlusIcon className="size-6 stroke-[3px]" />
+                  </div>
+                  Start from a photo
+                </label>
+              </Button>
+            </div>
             <input
               type="file"
               id="file-upload"
@@ -190,20 +155,23 @@ const BgRemoveBox = () => {
               className="hidden"
               ref={inputRef}
             />
-            <p className="font-semibold">Or drop an image here</p>
-          </>
+            <div className="flex flex-col items-center gap-2">
+              <p className="font-bold text-xl text-foreground">Or drop an image here</p>
+              <p className="text-sm text-muted-foreground font-medium">Supports JPG, PNG, WEBP up to 10MB</p>
+            </div>
+          </div>
         )}
       </div>
-      <div className="flex flex-col items-center justify-center gap-4 mt-10 text-center max-w-[400px] mx-auto">
-        <p className="text-xs mt-3 text-muted-foreground">
+      <div className="p-8 border-t border-border/50 bg-muted/30">
+        <p className="text-xs text-muted-foreground text-center leading-relaxed">
           By uploading an image you agree to our{' '}
-          <a className="font-semibold text-primary hover:underline" href="#">
+          <Link className="font-bold text-foreground hover:text-primary transition-colors underline underline-offset-4" href="/terms-of-service">
             Terms of Service
-          </a>
+          </Link>
           . For more details on processing and your rights, check our{' '}
-          <a className="font-semibold text-primary hover:underline" href="#">
+          <Link className="font-bold text-foreground hover:text-primary transition-colors underline underline-offset-4" href="/privacy-policy">
             Privacy Policy
-          </a>
+          </Link>
           .
         </p>
       </div>

@@ -47,40 +47,43 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   const navLinks = {
-    Product: ['Overview', 'Pricing', 'Marketplace', 'Features'],
-    Company: ['About', 'Team', 'Blog', 'Careers'],
-    Resources: ['Help', 'Sales', 'Advertise', 'Privacy'],
+    Product: [
+      { name: 'Features', href: '/features' },
+      { name: 'Pricing', href: '/pricing' },
+      { name: 'Blog', href: '/blog' },
+    ],
+    Company: [
+      { name: 'About Us', href: '/about' },
+      { name: 'Contact', href: '/contact' },
+    ],
+    Legal: [
+      { name: 'Privacy Policy', href: '/privacy-policy' },
+      { name: 'Terms of Service', href: '/terms-of-service' },
+    ],
   };
 
   return (
-    <footer className="w-full border-t text-white">
-      <div className="mx-auto max-w-7xl px-6 lg:py-8">
+    <footer className="w-full border-t text-foreground bg-background">
+      <div className="mx-auto max-w-7xl px-6 py-12 lg:py-16">
         {/* Top Section */}
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           {/* Brand Section */}
           <div className="flex flex-col gap-5 max-w-xs">
-            <Image
-              className="object-contain w-32 h-20 lg:w-48 lg:h-24"
-              src={'/images/backeraselogo.png'}
-              alt={'logo'}
-              unoptimized
-              height={100}
-              width={300}
-            />
+            <Logo href="/" className="[&>img]:h-10" />
 
             {/* Tagline */}
-            <p className="text-sm leading-relaxed text-gray-500">
-              A collection of components for your startup business or side project.
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Professional-grade AI background removal in seconds. Perfect for e-commerce, photographers, and creators.
             </p>
 
             {/* Social Icons */}
             <div className="flex items-center gap-4">
-              {/* Instagram */}
               <Link
                 href="#"
                 aria-label="Instagram"
-                className="text-gray-400 hover:text-gray-700 transition-colors duration-200"
+                className="text-muted-foreground hover:text-primary transition-colors duration-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -98,12 +101,10 @@ const Footer = () => {
                   <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
                 </svg>
               </Link>
-
-              {/* Facebook */}
               <Link
                 href="#"
                 aria-label="Facebook"
-                className="text-gray-400 hover:text-gray-700 transition-colors duration-200"
+                className="text-muted-foreground hover:text-primary transition-colors duration-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -119,12 +120,10 @@ const Footer = () => {
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                 </svg>
               </Link>
-
-              {/* Twitter / X */}
               <Link
                 href="#"
                 aria-label="Twitter"
-                className="text-gray-400 hover:text-gray-700 transition-colors duration-200"
+                className="text-muted-foreground hover:text-primary transition-colors duration-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -140,45 +139,22 @@ const Footer = () => {
                   <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
                 </svg>
               </Link>
-
-              {/* LinkedIn */}
-              <Link
-                href="#"
-                aria-label="LinkedIn"
-                className="text-gray-400 hover:text-gray-700 transition-colors duration-200"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                  <rect x="2" y="9" width="4" height="12" />
-                  <circle cx="4" cy="4" r="2" />
-                </svg>
-              </Link>
             </div>
           </div>
 
           {/* Nav Link Columns */}
-          <div className="grid grid-cols-3 gap-8 sm:gap-16">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-16">
             {Object.entries(navLinks).map(([category, links]) => (
               <div key={category} className="flex flex-col gap-4">
-                <h3 className="text-sm font-semibold text-white">{category}</h3>
+                <h3 className="text-sm font-bold text-foreground">{category}</h3>
                 <ul className="flex flex-col gap-3">
                   {links.map((link) => (
-                    <li key={link}>
+                    <li key={link.name}>
                       <Link
-                        href="#"
-                        className="text-sm text-gray-500 transition-colors duration-200"
+                        href={link.href}
+                        className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
                       >
-                        {link}
+                        {link.name}
                       </Link>
                     </li>
                   ))}
@@ -189,17 +165,17 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="mt-12 border-t border-gray-200" />
+        <div className="mt-12 border-t border-border" />
 
         {/* Bottom Section */}
-        <div className="mt-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm text-gray-400">© 2024 Eraseo. All rights reserved.</p>
-          <div className="flex items-center gap-5">
-            <Link href="#" className="text-sm text-white transition-colors duration-200">
-              Terms and Conditions
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <p className="text-sm text-muted-foreground">© {currentYear} Eraseo. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <Link href="/terms-of-service" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
+              Terms
             </Link>
-            <Link href="#" className="text-sm text-white transition-colors duration-200">
-              Privacy Policy
+            <Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
+              Privacy
             </Link>
           </div>
         </div>
