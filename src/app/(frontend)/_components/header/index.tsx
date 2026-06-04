@@ -24,7 +24,6 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
 
 import HeaderMenu from './menu';
-import ThemeToggle from './theme-toggle';
 
 const Header = ({ initalUser }: { initalUser?: UserResponse }) => {
   const { user, logout } = useProfile(initalUser);
@@ -50,13 +49,12 @@ const Header = ({ initalUser }: { initalUser?: UserResponse }) => {
 
         {/* Right Section */}
         <div className="flex flex-1 justify-end items-center gap-3">
-          <div className="items-center gap-1.5 hidden lg:flex border py-1 px-1 rounded-4xl">
-            <ThemeToggle />
+          <div className="items-center gap-1 hidden lg:flex border p-1 rounded-4xl bg-card/50 backdrop-blur-sm shadow-sm">
             {user ? (
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-2 cursor-pointer outline-none">
+                <DropdownMenuTrigger className="flex items-center gap-2 cursor-pointer outline-none px-1">
                   <Avatar
-                    className={cn('ease-snappy transition-[width]')}
+                    className={cn('ease-snappy transition-[width] size-9')}
                     name={user?.name || ''}
                     src={user?.avatar || undefined}
                   />
@@ -126,7 +124,7 @@ const Header = ({ initalUser }: { initalUser?: UserResponse }) => {
                 <Link
                   className={cn(
                     buttonVariants({ variant: 'ghost' }),
-                    'rounded-4xl px-5 font-semibold text-[15px]',
+                    'rounded-4xl px-6 font-semibold text-[15px] h-10',
                   )}
                   href="/login"
                 >
@@ -135,7 +133,7 @@ const Header = ({ initalUser }: { initalUser?: UserResponse }) => {
                 <Link
                   className={cn(
                     buttonVariants(),
-                    'rounded-4xl px-5 font-semibold text-[15px]',
+                    'rounded-4xl px-6 font-semibold text-[15px] h-10 bg-primary hover:bg-primary/90 text-white',
                   )}
                   href="/signup"
                 >
@@ -145,14 +143,13 @@ const Header = ({ initalUser }: { initalUser?: UserResponse }) => {
             )}
           </div>
 
-          {/* Mobile Theme Toggle & Menu Button */}
-          <div className="flex lg:hidden items-center gap-2">
-            <ThemeToggle />
+          {/* Mobile Menu Button */}
+          <div className="flex lg:hidden items-center">
             <Button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               size="icon"
               variant="ghost"
-              className="rounded-full"
+              className="rounded-full h-10 w-10"
             >
               <AlignJustifyIcon className="!size-6 stroke-[1.5]" />
             </Button>
