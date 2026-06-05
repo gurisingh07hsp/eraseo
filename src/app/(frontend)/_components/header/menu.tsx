@@ -76,7 +76,7 @@ export default function HeaderMenu({
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
                 className={cn(
-                  'block py-3 px-4 rounded-xl text-lg font-semibold transition-colors',
+                  'block py-3 px-4 rounded-xl text-base font-semibold transition-colors',
                   pathname === item.href ? 'bg-primary/10 text-primary' : 'hover:bg-accent',
                 )}
               >
