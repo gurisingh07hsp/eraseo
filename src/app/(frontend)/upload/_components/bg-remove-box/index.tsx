@@ -143,7 +143,7 @@ const BgRemoveBox = () => {
                 <div className="bg-white/20 rounded-lg p-0.5 sm:p-1">
                   <PlusIcon className="size-5 sm:size-6 stroke-[3px]" />
                 </div>
-                Start from a photo
+                Upload Image
               </label>
               </Button>
             </div>
