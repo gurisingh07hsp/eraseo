@@ -39,7 +39,12 @@ const Header = ({ initalUser }: { initalUser?: UserResponse }) => {
       <div className="container mx-auto flex h-20 items-center px-4 lg:px-14">
         {/* Left Section */}
         <div className="flex flex-1 justify-start">
-          <HeaderMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+          <HeaderMenu
+            isMenuOpen={isMenuOpen}
+            setIsMenuOpen={setIsMenuOpen}
+            user={user}
+            logout={logout}
+          />
         </div>
 
         {/* Center Section - Logo */}
