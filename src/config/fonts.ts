@@ -1,6 +1,6 @@
-import { Geist } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
-export const fontGeist = Geist({
-  variable: '--font-geist',
+export const fontInter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
 });

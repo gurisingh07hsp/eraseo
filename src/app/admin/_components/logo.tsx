@@ -26,7 +26,7 @@ const Logo = ({
   return (
     <Link
       href={href || '/'}
-      className={cn('flex items-center lg:me-80 justify-start text-xl font-semibold')}
+      className={cn('flex items-center justify-start text-xl font-semibold', className)}
     >
       {!iconOnly ? (
         <>
