@@ -179,7 +179,7 @@ const BgRemoveBox = () => {
                 <div className="bg-accent/10 rounded-full p-1">
                   <PlusIcon className="stroke-[3px]" />
                 </div>
-                Start from a photo
+                Upload Image
               </label>
             </Button>
             <input
