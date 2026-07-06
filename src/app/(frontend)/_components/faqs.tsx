@@ -10,39 +10,28 @@ import { cn } from '@/lib/utils';
 
 const faqsContent = [
   {
-    question: 'What image formats does your background remover support?',
-    answer:
-      'Our app supports popular image formats including JPG, JPEG, PNG, and WebP. Processed images can be downloaded in PNG for transparency.',
+    question: 'Is Eraseo free to use?',
+    answer: 'Yes. If you need to get rid of backgrounds online – for free, and download high quality results.',
   },
   {
-    question: 'How do I remove a background from an image?',
-    answer:
-      'Upload your image, wait for AI processing (typically 2-10 seconds), preview the result, then download the background-free image. No manual editing is required!',
+    question: 'What image formats are supported?',
+    answer: 'Eraseo supports several common image formats including JPG, JPEG, PNG, WEBP.',
   },
   {
-    question: 'Is my uploaded data secure and private?',
-    answer:
-      'Yes! Uploaded images are automatically deleted from our servers within 24 hours. We never store, share, or use your content for training AI models.',
+    question: 'Can I remove backgrounds from product photos?',
+    answer: 'Absolutely. Eraseo has been specifically optimized for eCommerce product photography and marketplace listings.',
   },
   {
-    question: 'What’s the maximum image size I can process?',
-    answer:
-      'You can upload images up to 5MB in size. For larger files, consider compressing them before uploading. We recommend using JPG or PNG formats for best results.',
+    question: 'Does Eraseo work on mobile devices?',
+    answer: 'Yes. Eraseo is best suitable with phones, tablets, laptops and desktops.',
   },
   {
-    question: 'Do you offer a free Credits?',
-    answer:
-      'Yes! You can download up to 5 HD images for free per month. After that, you can purchase credits or subscribe to a plan for unlimited access.',
+    question: 'Can I make transparent PNG images?',
+    answer: 'Yes. You can download each image that has been processed with the bg laid on a transparent background.',
   },
   {
-    question: 'How does subscription billing work?',
-    answer:
-      'Plans are billed monthly or annually. Cancel anytime via your dashboard. We offer prorated refunds for annual plans canceled within 30 days.',
-  },
-  {
-    question: 'Is the app mobile-friendly?',
-    answer:
-      'Absolutely! Our web app works seamlessly on all devices. Save the site to your home screen for one-tap access, just like a native mobile app.',
+    question: 'Is my data secure?',
+    answer: 'Yes. We prioritize privacy and security throughout the image processing workflow.',
   },
 ];
 

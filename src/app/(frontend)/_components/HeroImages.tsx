@@ -1,8 +1,9 @@
 'use client';
-import { EraserIcon, Sparkles } from 'lucide-react';
+import { EraserIcon, Sparkles, Check, Bot, User, FileImage, Download, Zap } from 'lucide-react';
 import Image from 'next/image';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import BgRemoveBox from '../upload/_components/bg-remove-box';
+import { Button } from '@/components/ui/button';
 import { motion } from 'motion/react';
 
 const HeroImages = () => {
@@ -12,6 +13,7 @@ const HeroImages = () => {
   const mouse = useRef({ x: 0, y: 0 });
   const current = useRef({ x: 0, y: 0 });
   const rafRef = useRef<number>(0);
+  const [useSample, setUseSample] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -58,6 +60,14 @@ const HeroImages = () => {
       cancelAnimationFrame(rafRef.current);
     };
   }, []);
+
+  const trustBadges = [
+    { icon: Bot, text: '100% Automatic AI' },
+    { icon: User, text: 'No Signup Required' },
+    { icon: FileImage, text: 'Supports JPG, PNG & WEBP' },
+    { icon: Download, text: 'Transparent PNG Download' },
+    { icon: Zap, text: 'Free to Use' },
+  ];
 
   return (
     <div className="relative overflow-hidden pt-10 pb-16">
@@ -113,17 +123,41 @@ const HeroImages = () => {
           </div>
 
           <h1 className="text-balance text-center text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mb-6">
-            <span className="inline-flex items-center">
-              <EraserIcon className="size-8 sm:size-10 md:size-12 lg:size-14 mr-4 text-primary animate-pulse" />
-            </span>
-            Remove Backgrounds <br className="hidden sm:block" />
-            <span className="text-primary bg-clip-text">with One Click</span>
+            Free AI Background Remover
           </h1>
 
-          <p className="mb-12 text-center text-base tracking-tight text-muted-foreground md:text-lg max-w-2xl text-balance">
-            Professional-grade AI background removal in seconds. Perfect for e-commerce,
-            photographers, and creators. No complex tools required.
+          <p className="mb-8 text-center text-base tracking-tight text-muted-foreground md:text-lg max-w-3xl text-balance">
+            AI Photo Background Remover: Remove Image Background Instantaneously Just Upload any JPG, PNG, JPEG or WEBP and get a clean transparent background in just one click. These are not done in Photoshop, no manual editing, no watermarks.
           </p>
+
+          {/* Trust Badges */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {trustBadges.map((badge, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 shadow-sm text-xs font-medium"
+              >
+                <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                  <badge.icon className="size-3.5 text-primary" />
+                </div>
+                {badge.text}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-10">
+            <Button className="h-12 px-8 rounded-full bg-primary hover:bg-primary/90 text-white font-semibold">
+              Upload Image
+            </Button>
+            <Button variant="secondary" className="h-12 px-8 rounded-full font-semibold">
+              Try Sample Image
+            </Button>
+          </div>
         </motion.div>
 
         <motion.div

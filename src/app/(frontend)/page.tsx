@@ -5,7 +5,6 @@ import { cache } from 'react';
 import { FaqSection } from './_components/faqs';
 import Testimonials from './_components/Testimonial';
 import HeroImages from './_components/HeroImages';
-import HowToUse from './_components/HowToUse';
 import Features from './_components/Features';
 
 const HomePage = async () => {
@@ -18,7 +17,6 @@ const HomePage = async () => {
   return (
     <div className="pb-16 sm:pb-24 space-y-24 sm:space-y-32">
       <HeroImages />
-      <HowToUse />
       <Features />
       <Testimonials />
       <FaqSection />

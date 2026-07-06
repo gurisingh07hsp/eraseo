@@ -10,120 +10,92 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     quote:
-      'Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.',
-    name: 'Bilal Ahmed',
-    role: 'IT Manager',
-    avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
+      'Eraseo has completely changed the way I prepare product photos for my online store. The AI removes backgrounds in seconds, and the results look professional without any manual editing. It has saved me hours every week.',
+    name: 'Sarah M.',
+    role: 'Online Store Owner',
+    avatar: 'https://randomuser.me/api/portraits/women/32.jpg',
   },
   {
     quote:
-      'The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.',
-    name: 'Saman Malik',
-    role: 'Customer Support Lead',
-    avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
+      "I've tried several background removal tools, and Eraseo is one of the fastest. It handles fine details like hair and transparent objects surprisingly well. It's now part of my daily workflow.",
+    name: 'David R.',
+    role: 'Graphic Designer',
+    avatar: 'https://randomuser.me/api/portraits/men/44.jpg',
   },
   {
     quote:
-      'This tool has transformed how we operate. Real-time data visibility has made decision-making much faster.',
-    name: 'Omar Farooq',
-    role: 'Operations Head',
-    avatar: 'https://randomuser.me/api/portraits/men/58.jpg',
+      'Creating content for multiple social media platforms is much easier with Eraseo. I can quickly remove backgrounds from photos and create eye-catching graphics without opening complex design software.',
+    name: 'Emily T.',
+    role: 'Social Media Manager',
+    avatar: 'https://randomuser.me/api/portraits/women/58.jpg',
   },
   {
     quote:
-      'Excellent product with an intuitive interface. Our team adapted within days and productivity has soared.',
-    name: 'Ayesha Raza',
-    role: 'HR Director',
-    avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
-  },
-  {
-    quote:
-      'The analytics dashboard gives us insights we never had before. A game-changer for our reporting processes.',
-    name: 'Hassan Noor',
-    role: 'Finance Manager',
-    avatar: 'https://randomuser.me/api/portraits/men/12.jpg',
+      'Eraseo delivers clean edges and high-quality transparent PNGs. It\'s perfect for client previews, portraits, and marketing materials. The speed and accuracy are impressive.',
+    name: 'Michael L.',
+    role: 'Photographer',
+    avatar: 'https://randomuser.me/api/portraits/men/68.jpg',
   },
 ];
 
 const testimonials2: Testimonial[] = [
   {
     quote:
-      'Its robust features and quick support have transformed our workflow, making us significantly more efficient.',
-    name: 'Zainab Hussain',
-    role: 'Project Manager',
+      'I needed a simple way to create transparent images for presentations and advertisements. Eraseo made the process effortless, and the quality exceeded my expectations.',
+    name: 'Jessica P.',
+    role: 'Marketing Specialist',
     avatar: 'https://randomuser.me/api/portraits/women/22.jpg',
   },
   {
     quote:
-      'The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.',
-    name: 'Aliza Khan',
-    role: 'Business Analyst',
-    avatar: 'https://randomuser.me/api/portraits/women/55.jpg',
+      'Product images need clean white or transparent backgrounds, and Eraseo does exactly that. It has helped me prepare hundreds of product listings much faster than manual editing.',
+    name: 'Kevin H.',
+    role: 'Amazon Seller',
+    avatar: 'https://randomuser.me/api/portraits/men/55.jpg',
   },
   {
     quote:
-      'Integration with our existing systems was seamless. The API documentation is thorough and developer-friendly.',
-    name: 'Tariq Mehmood',
-    role: 'Lead Developer',
-    avatar: 'https://randomuser.me/api/portraits/men/78.jpg',
+      "I don't have any design experience, but Eraseo makes background removal incredibly simple. Upload, wait a few seconds, and download. That's all it takes.",
+    name: 'Olivia C.',
+    role: 'Small Business Owner',
+    avatar: 'https://randomuser.me/api/portraits/women/78.jpg',
   },
   {
     quote:
-      'Customer onboarding has improved dramatically. The platform guides users naturally through every step.',
-    name: 'Nadia Qureshi',
-    role: 'Product Owner',
-    avatar: 'https://randomuser.me/api/portraits/women/36.jpg',
-  },
-  {
-    quote:
-      'Reporting is now a breeze. What used to take days is done in minutes with beautiful visualizations.',
-    name: 'Kamran Iqbal',
-    role: 'Data Analyst',
-    avatar: 'https://randomuser.me/api/portraits/men/91.jpg',
+      'Whether I\'m creating YouTube thumbnails or Instagram posts, Eraseo helps me isolate subjects perfectly. It\'s fast, reliable, and works directly in the browser.',
+    name: 'Daniel W.',
+    role: 'Content Creator',
+    avatar: 'https://randomuser.me/api/portraits/men/36.jpg',
   },
 ];
 
 const testimonials3: Testimonial[] = [
   {
     quote:
-      'We received overwhelmingly positive customer feedback after switching. Our clients noticed the difference immediately.',
-    name: 'Farhan Siddiqui',
-    role: 'Marketing Director',
+      'The quality of the AI cutouts is excellent. Even challenging images with detailed hair and clothing come out looking clean. I highly recommend Eraseo for anyone working with images.',
+    name: 'Rachel S.',
+    role: 'Digital Marketer',
+    avatar: 'https://randomuser.me/api/portraits/women/91.jpg',
+  },
+  {
+    quote:
+      'Eraseo has become my go-to AI background remover. The interface is clean, the processing is quick, and the results are consistently accurate. It\'s one of the best free tools I\'ve used.',
+    name: 'Chris B.',
+    role: 'Freelance Designer',
     avatar: 'https://randomuser.me/api/portraits/men/47.jpg',
-  },
-  {
-    quote:
-      'They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.',
-    name: 'Sana Sheikh',
-    role: 'Sales Manager',
-    avatar: 'https://randomuser.me/api/portraits/women/82.jpg',
-  },
-  {
-    quote:
-      'Using this ERP, our online presence and conversions significantly improved, boosting revenue quarter after quarter.',
-    name: 'Imran Baig',
-    role: 'E-Commerce Lead',
-    avatar: 'https://randomuser.me/api/portraits/men/64.jpg',
-  },
-  {
-    quote:
-      'The mobile app experience is polished and fast. Our field teams can now update records on the go effortlessly.',
-    name: 'Rabia Sultana',
-    role: 'Field Operations Manager',
-    avatar: 'https://randomuser.me/api/portraits/women/14.jpg',
-  },
-  {
-    quote:
-      'Security and compliance features gave us confidence. Passing our audit was straightforward with the built-in controls.',
-    name: 'Usman Ghani',
-    role: 'Compliance Officer',
-    avatar: 'https://randomuser.me/api/portraits/men/23.jpg',
   },
 ];
 
 const TestimonialCard = ({ quote, name, role, avatar }: Testimonial) => (
-  <div className="mb-4 rounded-2xl border p-6 shadow-sm">
-    <p className="mb-5 text-[15px] leading-relaxed text-gray-600">{quote}</p>
+  <div className="mb-4 rounded-2xl border p-6 shadow-sm bg-card">
+    <div className="flex items-center mb-3">
+      {[1, 2, 3, 4, 5].map((star) => (
+        <svg key={star} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        </svg>
+      ))}
+    </div>
+    <p className="mb-5 text-[15px] leading-relaxed text-muted-foreground">{quote}</p>
     <div className="flex items-center gap-3">
       <Image
         src={avatar}
@@ -133,8 +105,8 @@ const TestimonialCard = ({ quote, name, role, avatar }: Testimonial) => (
         className="h-10 w-10 rounded-full object-cover"
       />
       <div>
-        <p className="text-sm font-semibold text-gray-900">{name}</p>
-        <p className="text-xs text-gray-400">{role}</p>
+        <p className="text-sm font-semibold text-foreground">{name}</p>
+        <p className="text-xs text-muted-foreground">{role}</p>
       </div>
     </div>
   </div>
@@ -181,10 +153,9 @@ const Testimonials = () => {
     <section className="py-20">
       {/* Header */}
       <div className="mx-auto mb-14 max-w-2xl px-6 text-center">
-        <h2 className="mb-4 text-5xl font-extrabold tracking-tight text-white">
-          What our users say
+        <h2 className="mb-4 text-5xl font-extrabold tracking-tight text-black dark:text-white">
+          What Our Users Say
         </h2>
-        <p className="text-base text-gray-500">See what our customers have to say about us.</p>
       </div>
 
       {/* Columns */}
