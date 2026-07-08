@@ -131,7 +131,7 @@ const HeroImages = () => {
           </p>
 
           {/* Trust Badges */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3 mb-10 w-full max-w-2xl">
             {trustBadges.map((badge, i) => (
               <motion.div
                 key={i}
@@ -139,12 +139,12 @@ const HeroImages = () => {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 shadow-sm text-xs font-medium"
+                className="flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full bg-card border border-border/50 shadow-sm text-[10px] sm:text-xs font-medium"
               >
-                <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
-                  <badge.icon className="size-3.5 text-primary" />
+                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <badge.icon className="size-3 sm:size-3.5 text-primary" />
                 </div>
-                {badge.text}
+                <span className="truncate">{badge.text}</span>
               </motion.div>
             ))}
           </div>
