@@ -127,11 +127,13 @@ const HeroImages = () => {
           </h1>
 
           <p className="mb-8 text-center text-base tracking-tight text-muted-foreground md:text-lg max-w-3xl text-balance">
-            AI Photo Background Remover: Remove Image Background Instantaneously Just Upload any JPG, PNG, JPEG or WEBP and get a clean transparent background in just one click. These are not done in Photoshop, no manual editing, no watermarks.
+            AI Photo Background Remover: Remove Image Background Instantaneously Just Upload any
+            JPG, PNG, JPEG or WEBP and get a clean transparent background in just one click. These
+            are not done in Photoshop, no manual editing, no watermarks.
           </p>
 
           {/* Trust Badges */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3 mb-10 w-full max-w-2xl">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3 mb-10 w-full max-w-5xl">
             {trustBadges.map((badge, i) => (
               <motion.div
                 key={i}
@@ -144,7 +146,7 @@ const HeroImages = () => {
                 <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <badge.icon className="size-3 sm:size-3.5 text-primary" />
                 </div>
-                <span className="truncate">{badge.text}</span>
+                <span className="">{badge.text}</span>
               </motion.div>
             ))}
           </div>

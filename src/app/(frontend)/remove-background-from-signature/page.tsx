@@ -29,7 +29,7 @@ const RemoveBackgroundSignature = () => {
       <h1 className="text-balance text-center text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mb-6">
         Remove Background from Signature
       </h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3 mb-10 w-full max-w-2xl">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3 mb-10 w-full max-w-5xl">
         {trustBadges.map((badge, i) => (
           <div
             key={i}
@@ -38,7 +38,7 @@ const RemoveBackgroundSignature = () => {
             <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
               <badge.icon className="size-3 sm:size-3.5 text-primary" />
             </div>
-            <span className="truncate">{badge.text}</span>
+            <span className="">{badge.text}</span>
           </div>
         ))}
       </div>
