@@ -97,7 +97,7 @@ export function useCreatePost() {
       onSuccess: (data) => {
         queryClient.invalidateQueries({ queryKey: [queryKeys.posts] });
         toast.success('Post created successfully');
-        router.push(`/admin/posts/${data.id}`);
+        router.push(`/admin/blogs/${data.id}`);
       },
       onError: (error) => {
         toast.error(error?.message ?? 'An error occurred');

@@ -40,8 +40,8 @@ const overviewNav = [
     icon: UsersIcon,
   },
   {
-    title: 'Posts',
-    url: '/admin/posts',
+    title: 'Blog',
+    url: '/admin/blogs',
     icon: LayoutListIcon,
   },
   {

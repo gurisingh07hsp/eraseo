@@ -29,10 +29,10 @@ const PostsTable = () => {
   return (
     <>
       <DataTable
-        title="Posts"
+        title="Blogs"
         onSearch={(e) => setFilter({ search: e })}
-        addButtonText="Add post"
-        onAddClick={() => router.push('/admin/posts/new')}
+        addButtonText="Add blog"
+        onAddClick={() => router.push('/admin/blogs/new')}
         pagination={{
           page: filters.page,
           limit: filters.limit,
@@ -51,7 +51,7 @@ const PostsTable = () => {
           selected,
           setSelected,
         }}
-        onClickRow={(row) => router.push(`/admin/posts/${row.id}`)}
+        onClickRow={(row) => router.push(`/admin/blogs/${row.id}`)}
         columns={[
           {
             title: 'Title',

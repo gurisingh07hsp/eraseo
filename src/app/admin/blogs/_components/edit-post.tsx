@@ -42,7 +42,7 @@ const UpdatePostForm = () => {
                   <FormLabel>Title</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="Post title..."
+                      placeholder="Blog title..."
                       value={field.value}
                       onChange={(e) => {
                         field.onChange(e.target.value);
@@ -62,7 +62,7 @@ const UpdatePostForm = () => {
                   <FormLabel>Slug</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="Post slug"
+                      placeholder="Blog slug"
                       value={field.value}
                       onChange={(e) => field.onChange(toSlug(e.target.value))}
                     />
@@ -78,7 +78,7 @@ const UpdatePostForm = () => {
                 <FormItem>
                   <FormLabel>Excerpt</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Post exerpt" {...field} />
+                    <Textarea placeholder="Blog exerpt" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -150,7 +150,7 @@ const UpdatePostForm = () => {
             />
             <div className="mt-2 flex justify-end gap-3">
               <Button disabled={isPending} className="min-w-[120px] h-10" type="submit">
-                {isPending ? <Loader className="animate-spin" /> : 'Update Post'}
+                {isPending ? <Loader className="animate-spin" /> : 'Update Blog'}
               </Button>
             </div>
           </form>

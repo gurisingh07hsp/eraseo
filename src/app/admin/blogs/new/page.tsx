@@ -22,11 +22,11 @@ const CreatePostPage = () => {
       <div className="space-y-1 pb-7 mb-7">
         <h1 className="text-2xl font-bold tracking-tight">
           <Button variant="outline" className="mr-4 size-8" asChild size="icon">
-            <Link href="/admin/posts">
+            <Link href="/admin/blogs">
               <ArrowLeftIcon className="w-6 h-6" />
             </Link>
           </Button>
-          New Post
+          New Blog
         </h1>
       </div>
       <div className="max-w-3xl mx-auto">
