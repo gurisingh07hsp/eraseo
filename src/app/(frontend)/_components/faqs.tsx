@@ -10,28 +10,28 @@ import { cn } from '@/lib/utils';
 
 const faqsContent = [
   {
-    question: 'Is Eraseo free to use?',
-    answer: 'Yes. If you need to get rid of backgrounds online – for free, and download high quality results.',
+    question: 'Can I start for free?',
+    answer: 'Yes. You can use BackErase for free without entering your credit card details.',
   },
   {
-    question: 'What image formats are supported?',
-    answer: 'Eraseo supports several common image formats including JPG, JPEG, PNG, WEBP.',
+    question: 'Can I upgrade later?',
+    answer: 'Yes. You can switch to a higher plan anytime as your requirements grow.',
   },
   {
-    question: 'Can I remove backgrounds from product photos?',
-    answer: 'Absolutely. Eraseo has been specifically optimized for eCommerce product photography and marketplace listings.',
+    question: 'Is there a contract?',
+    answer: 'No. You can manage or cancel your subscription according to your plan terms.',
   },
   {
-    question: 'Does Eraseo work on mobile devices?',
-    answer: 'Yes. Eraseo is best suitable with phones, tablets, laptops and desktops.',
+    question: 'Is payment secure?',
+    answer: 'Yes. All transactions are processed through secure payment gateways.',
   },
   {
-    question: 'Can I make transparent PNG images?',
-    answer: 'Yes. You can download each image that has been processed with the bg laid on a transparent background.',
+    question: 'Does the Business plan include API access?',
+    answer: 'Yes. API access is included with the Business plan for automated background removal.',
   },
   {
-    question: 'Is my data secure?',
-    answer: 'Yes. We prioritize privacy and security throughout the image processing workflow.',
+    question: 'Are my images secure?',
+    answer: 'Yes. Your uploaded images are processed securely, and your privacy is protected.',
   },
 ];
 
