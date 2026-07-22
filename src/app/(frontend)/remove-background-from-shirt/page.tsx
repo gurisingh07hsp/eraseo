@@ -1,16 +1,11 @@
+'use client';
 import React, { cache } from 'react';
 import settingServices from '@/server/settings/setting-services';
 import { Sparkles, Bot, User, FileImage, Download, Zap } from 'lucide-react';
-import { Metadata } from 'next';
+import { Button } from '@/components/ui/button';
+import { motion } from 'motion/react';
+import BgRemoveBox from '../upload/_components/bg-remove-box';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const settings = await cache(settingServices.publicSettings)();
-
-  return {
-    title: `Remove Background from Shirt - ${settings?.general?.applicationName || 'Eraseo'}`,
-    description: `Remove backgrounds from your images for free. ${settings?.general?.applicationName || 'Eraseo'} makes it easy to create professional-looking images.`,
-  };
-}
 const RemoveBackgroundFromShirt = () => {
   const trustBadges = [
     { icon: Bot, text: '100% Automatic AI' },
