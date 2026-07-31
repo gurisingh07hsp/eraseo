@@ -8,7 +8,14 @@ import React from 'react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Check, X } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -60,7 +67,8 @@ const whyChooseFeatures = [
 const industries = [
   {
     title: 'eCommerce',
-    description: 'Create professional product images for Shopify, WooCommerce, Amazon, Etsy, and other online marketplaces.',
+    description:
+      'Create professional product images for Shopify, WooCommerce, Amazon, Etsy, and other online marketplaces.',
   },
   {
     title: 'Photography',
@@ -72,7 +80,8 @@ const industries = [
   },
   {
     title: 'Graphic Design',
-    description: 'Create transparent PNG images for branding, presentations, and creative projects.',
+    description:
+      'Create transparent PNG images for branding, presentations, and creative projects.',
   },
   {
     title: 'Developers',
@@ -107,9 +116,13 @@ const PricingGrid = ({ plans }: { plans: Plan[] }) => {
           <Badge className="mb-2" variant="secondary">
             Pricing
           </Badge>
-          <h1 className="text-3xl md:text-5xl font-bold">Simple, Transparent Pricing for Every Workflow</h1>
+          <h1 className="text-3xl md:text-5xl font-bold">
+            Simple, Transparent Pricing for Every Workflow
+          </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
-            Whether you're removing backgrounds for personal projects, running an online store, or creating content for clients, BackErase offers a pricing plan that fits your needs. Start for free and upgrade whenever you need more features.
+            Whether you're removing backgrounds for personal projects, running an online store, or
+            creating content for clients, BackErase offers a pricing plan that fits your needs.
+            Start for free and upgrade whenever you need more features.
           </p>
           <p className="text-muted-foreground">
             No complicated pricing. No hidden fees. Just fast, accurate AI background removal.
@@ -164,13 +177,13 @@ const PricingGrid = ({ plans }: { plans: Plan[] }) => {
         </div>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
           <PricingCard
-            name="Free"
-            description="Perfect for trying BackErase. Best for: Individuals and first-time users"
+            name="Free Plan"
+            description="Perfect for beginners & casual users"
             features={[
-              'Limited background removals',
-              'Standard resolution downloads',
-              'Fast AI processing',
-              'Personal use',
+              'Remove backgrounds online for free',
+              'High-quality transparent PNG export',
+              'Basic AI processing',
+              'Web access on all devices',
               'No credit card required',
             ]}
             price="Free"
@@ -193,7 +206,13 @@ const PricingGrid = ({ plans }: { plans: Plan[] }) => {
               features={parseFeatures(plan.features)}
               price={paymentFrequency === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice}
               paymentFrequency={paymentFrequency === 'monthly' ? 'Month' : 'Year'}
-              buttonText={subscription ? 'Manage' : (plan.name === 'Pro' ? 'Upgrade to Pro' : 'Choose Business')}
+              buttonText={
+                subscription
+                  ? 'Manage'
+                  : plan.name === 'Pro Plan'
+                    ? 'Upgrade to Pro'
+                    : 'Upgrade to Business'
+              }
               isPopular={plan.isPopular}
               disabled={isLoading || subscriptionLoading}
               isLoading={isPending && selectedPlan === plan.id}
@@ -237,21 +256,33 @@ const PricingGrid = ({ plans }: { plans: Plan[] }) => {
                   <td className="py-4 px-4">{feature.name}</td>
                   <td className="text-center py-4 px-4">
                     {typeof feature.free === 'boolean' ? (
-                      feature.free ? <Check className="text-green-500 inline" /> : <X className="text-muted-foreground inline" />
+                      feature.free ? (
+                        <Check className="text-green-500 inline" />
+                      ) : (
+                        <X className="text-muted-foreground inline" />
+                      )
                     ) : (
                       feature.free
                     )}
                   </td>
                   <td className="text-center py-4 px-4">
                     {typeof feature.pro === 'boolean' ? (
-                      feature.pro ? <Check className="text-green-500 inline" /> : <X className="text-muted-foreground inline" />
+                      feature.pro ? (
+                        <Check className="text-green-500 inline" />
+                      ) : (
+                        <X className="text-muted-foreground inline" />
+                      )
                     ) : (
                       feature.pro
                     )}
                   </td>
                   <td className="text-center py-4 px-4">
                     {typeof feature.business === 'boolean' ? (
-                      feature.business ? <Check className="text-green-500 inline" /> : <X className="text-muted-foreground inline" />
+                      feature.business ? (
+                        <Check className="text-green-500 inline" />
+                      ) : (
+                        <X className="text-muted-foreground inline" />
+                      )
                     ) : (
                       feature.business
                     )}
@@ -277,7 +308,7 @@ const PricingGrid = ({ plans }: { plans: Plan[] }) => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card>
+              <Card className="py-5">
                 <CardHeader>
                   <CardTitle>{industry.title}</CardTitle>
                 </CardHeader>
@@ -296,7 +327,9 @@ const PricingGrid = ({ plans }: { plans: Plan[] }) => {
           <CardContent className="p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Scale as You Grow</h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Start with the Free plan and upgrade whenever your needs increase. Whether you're editing a few images each week or processing thousands every month, BackErase provides the speed and reliability you need.
+              Start with the Free plan and upgrade whenever your needs increase. Whether you're
+              editing a few images each week or processing thousands every month, BackErase provides
+              the speed and reliability you need.
             </p>
           </CardContent>
         </Card>
@@ -307,9 +340,12 @@ const PricingGrid = ({ plans }: { plans: Plan[] }) => {
         <div className="text-center space-y-4">
           <h2 className="text-3xl md:text-4xl font-bold">Ready to Get Started?</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Join thousands of creators, photographers, online sellers, and businesses using BackErase to remove backgrounds quickly and professionally.
+            Join thousands of creators, photographers, online sellers, and businesses using
+            BackErase to remove backgrounds quickly and professionally.
           </p>
-          <p className="text-muted-foreground">Start Free Today • Upgrade Anytime • Create Better Images Faster</p>
+          <p className="text-muted-foreground">
+            Start Free Today • Upgrade Anytime • Create Better Images Faster
+          </p>
           <Button size="lg" onClick={() => router.push(user ? '/upload' : '/signup')}>
             Get Started Free
           </Button>

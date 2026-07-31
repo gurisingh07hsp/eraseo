@@ -1,11 +1,8 @@
 import postServices from '@/server/posts/post-services';
 import settingServices from '@/server/settings/setting-services';
 import { Metadata } from 'next';
-import React, { cache } from 'react';
-
+import { cache } from 'react';
 import { Badge } from '@/components/ui/badge';
-
-import { FaqSection } from '../_components/faqs';
 import PostsGrid from './_components/posts-grid';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -57,7 +54,6 @@ const PricingPage = async ({ searchParams }: { searchParams: tSearchParams }) =>
         </div>
         <PostsGrid postsData={postsData} />
       </div>
-      <FaqSection />
     </div>
   );
 };

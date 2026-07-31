@@ -128,7 +128,6 @@ const getPricingPlans = async () => {
       position: 'asc',
     },
   });
-
   return response;
 };
 
