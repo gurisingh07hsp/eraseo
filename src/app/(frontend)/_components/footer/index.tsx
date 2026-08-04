@@ -53,10 +53,23 @@ const Footer = () => {
       { name: 'Features', href: '/features' },
       { name: 'Pricing', href: '/pricing' },
       { name: 'Blog', href: '/blog' },
+      { name: 'Background Remover', href: '/free-background-remover' },
+      { name: 'Photographers', href: '/photographers' },
+      { name: 'Remove Background From Car', href: '/remove-background-from-car' },
+      { name: 'Remove Background From Document', href: '/remove-background-from-document' },
+      { name: 'Remove Background From Logo', href: '/remove-background-from-logo' },
+      { name: 'Remove Background From Product', href: '/remove-background-from-product' },
     ],
     Company: [
       { name: 'About Us', href: '/about' },
       { name: 'Contact', href: '/contact' },
+      { name: 'Remove Background From Shirt', href: '/remove-background-from-shirt' },
+      { name: 'Remove Background From Shoes', href: '/remove-background-from-shoes' },
+      { name: 'Remove Background From Signature', href: '/remove-background-from-signature' },
+      { name: 'Transparent Background Generator', href: '/transparent-background-generator' },
+      { name: 'Remove Background From Person', href: '/remove-background-from-person' },
+      { name: 'Remove Background From Photo', href: '/remove-background-from-photo' },
+      { name: 'Developers', href: '/developers' },
     ],
     Legal: [
       { name: 'Privacy Policy', href: '/privacy-policy' },
@@ -75,7 +88,8 @@ const Footer = () => {
 
             {/* Tagline */}
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Professional-grade AI background removal in seconds. Perfect for e-commerce, photographers, and creators.
+              Professional-grade AI background removal in seconds. Perfect for e-commerce,
+              photographers, and creators.
             </p>
 
             {/* Social Icons */}
@@ -169,12 +183,20 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="mt-8 flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm text-muted-foreground">© {currentYear} Eraseo. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">
+            © {currentYear} Back Erase. All rights reserved.
+          </p>
           <div className="flex items-center gap-6">
-            <Link href="/terms-of-service" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
+            <Link
+              href="/terms-of-service"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+            >
               Terms
             </Link>
-            <Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
+            <Link
+              href="/privacy-policy"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+            >
               Privacy
             </Link>
           </div>

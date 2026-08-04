@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const TermsOfServicePage = async () => {
   const settings = await cache(settingServices.publicSettings)();
   const legal = await settingServices.getSettings('legal');
-  const appName = settings?.general?.applicationName || 'Eraseo';
+  const appName = settings?.general?.applicationName || 'Back Erase';
 
   const defaultContent = `
     <h2>1. Acceptance of Terms</h2>
@@ -38,7 +38,7 @@ const TermsOfServicePage = async () => {
     <p>We reserve the right to terminate or suspend your account at our sole discretion, without notice, for conduct that we believe violates these Terms.</p>
 
     <h2>8. Contact</h2>
-    <p>Questions about the Terms of Service should be sent to us at support@eraseo.com.</p>
+    <p>Questions about the Terms of Service should be sent to us at support@backerase.com.</p>
   `;
 
   return (

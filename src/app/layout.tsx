@@ -53,4 +53,4 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   );
 }
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';

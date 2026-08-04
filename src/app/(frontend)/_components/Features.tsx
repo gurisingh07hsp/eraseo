@@ -1,28 +1,49 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { ArrowRight, Zap, Brain, Image as ImageIcon, CreditCard, Smartphone, Shield, Upload, Wand2, Download, ShoppingBag, User, Share2, Palette, Megaphone, Briefcase, Check } from 'lucide-react';
+import {
+  ArrowRight,
+  Zap,
+  Brain,
+  Image as ImageIcon,
+  CreditCard,
+  Smartphone,
+  Shield,
+  Upload,
+  Wand2,
+  Download,
+  ShoppingBag,
+  User,
+  Share2,
+  Palette,
+  Megaphone,
+  Briefcase,
+  Check,
+} from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-// Section 2: Why Choose Eraseo
+// Section 2: Why Choose Back Erase
 const whyChooseData = [
   {
     icon: Zap,
     title: 'Lightning Fast',
-    description: 'Simple yet powerful image background removal. And it takes just a few seconds to do without the need for a complicated process.',
+    description:
+      'Simple yet powerful image background removal. And it takes just a few seconds to do without the need for a complicated process.',
   },
   {
     icon: Brain,
     title: 'AI-Powered Precision',
-    description: 'Advanced AI Focus accurately recognizes subjects, maintaining intricate details like hair, fur, jewelry and transparent edges.',
+    description:
+      'Advanced AI Focus accurately recognizes subjects, maintaining intricate details like hair, fur, jewelry and transparent edges.',
   },
   {
     icon: ImageIcon,
     title: 'High Quality Results',
-    description: 'Download clear transparent PNG images by retaining original quality and sharpness.',
+    description:
+      'Download clear transparent PNG images by retaining original quality and sharpness.',
   },
   {
     icon: CreditCard,
@@ -32,12 +53,14 @@ const whyChooseData = [
   {
     icon: Smartphone,
     title: 'Works on Every Device',
-    description: 'Use Eraseo Straight From Your Browser On Windows, Mac, Android, iPhone And Tablets And Chromebooks',
+    description:
+      'Use Back Erase Straight From Your Browser On Windows, Mac, Android, iPhone And Tablets And Chromebooks',
   },
   {
     icon: Shield,
     title: 'Secure & Private',
-    description: 'Once uploaded, the images are processed securely and are automatically deleted post-processing to help keep your data safe and private.',
+    description:
+      'Once uploaded, the images are processed securely and are automatically deleted post-processing to help keep your data safe and private.',
   },
 ];
 
@@ -51,12 +74,14 @@ const howItWorksData = [
   {
     icon: Wand2,
     title: 'AI Removes the Background',
-    description: 'We use our AI to automatically identify the hero, and then we extract it from the background pixel-perfectly!',
+    description:
+      'We use our AI to automatically identify the hero, and then we extract it from the background pixel-perfectly!',
   },
   {
     icon: Download,
     title: 'Download Your Transparent Image',
-    description: 'Download your PNG we our high-resolution with Transparent background or change colors and backgrounds!',
+    description:
+      'Download your PNG we our high-resolution with Transparent background or change colors and backgrounds!',
   },
 ];
 
@@ -65,32 +90,38 @@ const useCasesData = [
   {
     icon: ShoppingBag,
     title: 'E-commerce Product Photos',
-    description: 'Design Background Removal Product Images With White Background For Amazon / Shopify/Etsy/eBay/Walmart/Places.',
+    description:
+      'Design Background Removal Product Images With White Background For Amazon / Shopify/Etsy/eBay/Walmart/Places.',
   },
   {
     icon: User,
     title: 'Portrait Photography',
-    description: 'Make distracting backgrounds go bye-bye in selfies, professional head shots, graduation pictures and family portraits.',
+    description:
+      'Make distracting backgrounds go bye-bye in selfies, professional head shots, graduation pictures and family portraits.',
   },
   {
     icon: Share2,
     title: 'Social Media Content',
-    description: 'Create stunning Instagram posts, YouTube thumbnails, Facebook ads, LinkedIn profile photos and TikTok graphics.',
+    description:
+      'Create stunning Instagram posts, YouTube thumbnails, Facebook ads, LinkedIn profile photos and TikTok graphics.',
   },
   {
     icon: Palette,
     title: 'Graphic Design',
-    description: 'Transparent png images or presentations, posters and flyers, logos, brochures and digital art work',
+    description:
+      'Transparent png images or presentations, posters and flyers, logos, brochures and digital art work',
   },
   {
     icon: Megaphone,
     title: 'Marketing Materials',
-    description: 'Images for commercials, websites, email campaigns and other marketing activities.',
+    description:
+      'Images for commercials, websites, email campaigns and other marketing activities.',
   },
   {
     icon: Briefcase,
     title: 'Business Branding',
-    description: 'Design for transparent background logos, team photos, company profiles and icon graphics.',
+    description:
+      'Design for transparent background logos, team photos, company profiles and icon graphics.',
   },
 ];
 
@@ -122,15 +153,20 @@ const benefitsList = [
 export default function Features() {
   return (
     <div className="space-y-32">
-      {/* Section 2: Why Choose Eraseo */}
+      {/* Section 2: Why Choose Back Erase */}
       <section className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-            So Why Should You Use Eraseo AI Background Remover?
+            So Why Should You Use Back Erase AI Background Remover?
           </h2>
           <p className="text-muted-foreground text-lg text-balance">
-            Using next-generation artificial intelligence, Eraseo accurately identifies people, products, animals, vehicles, logos and even complex objects with a high degree of precision. Our AI removes backgrounds instantly, and with great detail paying special attention to hair, fur, edges and transparent objects unlike any existing editor software.{' '}
-            If you are planning to create Product photos, Profile pictures, Marketing graphics, Social media posts or Online store listings then Eraseo makes sure that all of the above can help you achieve professional-grade results in just a few seconds!
+            Using next-generation artificial intelligence, Back Erase accurately identifies people,
+            products, animals, vehicles, logos and even complex objects with a high degree of
+            precision. Our AI removes backgrounds instantly, and with great detail paying special
+            attention to hair, fur, edges and transparent objects unlike any existing editor
+            software. If you are planning to create Product photos, Profile pictures, Marketing
+            graphics, Social media posts or Online store listings then Back Erase makes sure that
+            all of the above can help you achieve professional-grade results in just a few seconds!
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -192,7 +228,8 @@ export default function Features() {
             Ideal for This Type of Image
           </h2>
           <p className="text-muted-foreground text-lg text-balance">
-            Whether you want to remove background from any kind of photo, Eraseo provides clean and professional looking background removal.
+            Whether you want to remove background from any kind of photo, Back Erase provides clean
+            and professional looking background removal.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -222,14 +259,20 @@ export default function Features() {
             Why Is AI Better Than Manual Background Removal?
           </h2>
           <p className="text-muted-foreground text-lg text-balance">
-            Removing a background the traditional way can take anywhere from several minutes to hours to do it right. Eraseo automates the whole process using powerful AI that detects the subject in seconds.
+            Removing a background the traditional way can take anywhere from several minutes to
+            hours to do it right. Back Erase automates the whole process using powerful AI that
+            detects the subject in seconds.
           </p>
         </div>
         <div className="max-w-4xl mx-auto">
           <div className="bg-card rounded-3xl border border-border/50 shadow-xl overflow-hidden">
             <div className="grid grid-cols-2 gap-0 border-b border-border/50">
-              <div className="p-6 bg-muted/30 text-center font-bold text-muted-foreground">Traditional Editing</div>
-              <div className="p-6 bg-primary/10 text-center font-bold text-primary">Eraseo AI</div>
+              <div className="p-6 bg-muted/30 text-center font-bold text-muted-foreground">
+                Traditional Editing
+              </div>
+              <div className="p-6 bg-primary/10 text-center font-bold text-primary">
+                Back Erase AI
+              </div>
             </div>
             {comparisonData.map((item, i) => (
               <motion.div
@@ -255,7 +298,8 @@ export default function Features() {
             Supported Image Formats
           </h2>
           <p className="text-muted-foreground text-lg text-balance">
-            Eraseo nearly has every popular image format supported, and you can edit them without problems. They offer great picture quality in processed high res images.
+            Back Erase nearly has every popular image format supported, and you can edit them
+            without problems. They offer great picture quality in processed high res images.
           </p>
         </div>
         <div className="flex flex-wrap justify-center gap-6">
@@ -281,7 +325,9 @@ export default function Features() {
             Where Millions of Images Need Background Removal
           </h2>
           <p className="text-muted-foreground text-lg text-balance">
-            Removing background aids to spice up the aesthetic of images, increases the professionalism and makes the initiative less complicated and faster to re-use on web sites, online stores, presentations and advertising campaigns.
+            Removing background aids to spice up the aesthetic of images, increases the
+            professionalism and makes the initiative less complicated and faster to re-use on web
+            sites, online stores, presentations and advertising campaigns.
           </p>
         </div>
         <div className="max-w-4xl mx-auto">

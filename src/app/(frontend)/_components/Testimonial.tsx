@@ -10,28 +10,28 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     quote:
-      'Eraseo has completely changed the way I prepare product photos for my online store. The AI removes backgrounds in seconds, and the results look professional without any manual editing. It has saved me hours every week.',
+      'Back Erase has completely changed the way I prepare product photos for my online store. The AI removes backgrounds in seconds, and the results look professional without any manual editing. It has saved me hours every week.',
     name: 'Sarah M.',
     role: 'Online Store Owner',
     avatar: 'https://randomuser.me/api/portraits/women/32.jpg',
   },
   {
     quote:
-      "I've tried several background removal tools, and Eraseo is one of the fastest. It handles fine details like hair and transparent objects surprisingly well. It's now part of my daily workflow.",
+      "I've tried several background removal tools, and Back Erase is one of the fastest. It handles fine details like hair and transparent objects surprisingly well. It's now part of my daily workflow.",
     name: 'David R.',
     role: 'Graphic Designer',
     avatar: 'https://randomuser.me/api/portraits/men/44.jpg',
   },
   {
     quote:
-      'Creating content for multiple social media platforms is much easier with Eraseo. I can quickly remove backgrounds from photos and create eye-catching graphics without opening complex design software.',
+      'Creating content for multiple social media platforms is much easier with Back Erase. I can quickly remove backgrounds from photos and create eye-catching graphics without opening complex design software.',
     name: 'Emily T.',
     role: 'Social Media Manager',
     avatar: 'https://randomuser.me/api/portraits/women/58.jpg',
   },
   {
     quote:
-      'Eraseo delivers clean edges and high-quality transparent PNGs. It\'s perfect for client previews, portraits, and marketing materials. The speed and accuracy are impressive.',
+      "Back Erase delivers clean edges and high-quality transparent PNGs. It's perfect for client previews, portraits, and marketing materials. The speed and accuracy are impressive.",
     name: 'Michael L.',
     role: 'Photographer',
     avatar: 'https://randomuser.me/api/portraits/men/68.jpg',
@@ -41,28 +41,28 @@ const testimonials: Testimonial[] = [
 const testimonials2: Testimonial[] = [
   {
     quote:
-      'I needed a simple way to create transparent images for presentations and advertisements. Eraseo made the process effortless, and the quality exceeded my expectations.',
+      'I needed a simple way to create transparent images for presentations and advertisements. Back Erase made the process effortless, and the quality exceeded my expectations.',
     name: 'Jessica P.',
     role: 'Marketing Specialist',
     avatar: 'https://randomuser.me/api/portraits/women/22.jpg',
   },
   {
     quote:
-      'Product images need clean white or transparent backgrounds, and Eraseo does exactly that. It has helped me prepare hundreds of product listings much faster than manual editing.',
+      'Product images need clean white or transparent backgrounds, and Back Erase does exactly that. It has helped me prepare hundreds of product listings much faster than manual editing.',
     name: 'Kevin H.',
     role: 'Amazon Seller',
     avatar: 'https://randomuser.me/api/portraits/men/55.jpg',
   },
   {
     quote:
-      "I don't have any design experience, but Eraseo makes background removal incredibly simple. Upload, wait a few seconds, and download. That's all it takes.",
+      "I don't have any design experience, but Back Erase makes background removal incredibly simple. Upload, wait a few seconds, and download. That's all it takes.",
     name: 'Olivia C.',
     role: 'Small Business Owner',
     avatar: 'https://randomuser.me/api/portraits/women/78.jpg',
   },
   {
     quote:
-      'Whether I\'m creating YouTube thumbnails or Instagram posts, Eraseo helps me isolate subjects perfectly. It\'s fast, reliable, and works directly in the browser.',
+      "Whether I'm creating YouTube thumbnails or Instagram posts, Back Erase helps me isolate subjects perfectly. It's fast, reliable, and works directly in the browser.",
     name: 'Daniel W.',
     role: 'Content Creator',
     avatar: 'https://randomuser.me/api/portraits/men/36.jpg',
@@ -72,14 +72,14 @@ const testimonials2: Testimonial[] = [
 const testimonials3: Testimonial[] = [
   {
     quote:
-      'The quality of the AI cutouts is excellent. Even challenging images with detailed hair and clothing come out looking clean. I highly recommend Eraseo for anyone working with images.',
+      'The quality of the AI cutouts is excellent. Even challenging images with detailed hair and clothing come out looking clean. I highly recommend Back Erase for anyone working with images.',
     name: 'Rachel S.',
     role: 'Digital Marketer',
     avatar: 'https://randomuser.me/api/portraits/women/91.jpg',
   },
   {
     quote:
-      'Eraseo has become my go-to AI background remover. The interface is clean, the processing is quick, and the results are consistently accurate. It\'s one of the best free tools I\'ve used.',
+      "Back Erase has become my go-to AI background remover. The interface is clean, the processing is quick, and the results are consistently accurate. It's one of the best free tools I've used.",
     name: 'Chris B.',
     role: 'Freelance Designer',
     avatar: 'https://randomuser.me/api/portraits/men/47.jpg',

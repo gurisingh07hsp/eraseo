@@ -1,6 +1,4 @@
 'use client';
-import React, { cache } from 'react';
-import settingServices from '@/server/settings/setting-services';
 import { Sparkles, Bot, User, FileImage, Download, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'motion/react';

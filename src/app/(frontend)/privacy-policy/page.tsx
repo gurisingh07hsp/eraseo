@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const PrivacyPolicyPage = async () => {
   const settings = await cache(settingServices.publicSettings)();
   const legal = await settingServices.getSettings('legal');
-  const appName = settings?.general?.applicationName || 'Eraseo';
+  const appName = settings?.general?.applicationName || 'Back Erase';
 
   const defaultContent = `
     <h2>1. Information We Collect</h2>
@@ -46,7 +46,7 @@ const PrivacyPolicyPage = async () => {
     <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page.</p>
 
     <h2>7. Contact Us</h2>
-    <p>If you have any questions about this Privacy Policy, please contact us at support@eraseo.com.</p>
+    <p>If you have any questions about this Privacy Policy, please contact us at support@backerase.com.</p>
   `;
 
   return (

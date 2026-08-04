@@ -10,8 +10,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await cache(settingServices.publicSettings)();
 
   return {
-    title: `Contact Us - ${settings?.general?.applicationName || 'Eraseo'}`,
-    description: `Get in touch with the ${settings?.general?.applicationName || 'Eraseo'} team. We're here to help with any questions or feedback.`,
+    title: `Contact Us - ${settings?.general?.applicationName || 'Back Erase'}`,
+    description: `Get in touch with the ${settings?.general?.applicationName || 'Back Erase'} team. We're here to help with any questions or feedback.`,
   };
 }
 
@@ -24,7 +24,8 @@ const ContactPage = async () => {
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold tracking-tight mb-4">Contact Us</h1>
           <p className="text-lg text-muted-foreground">
-            Have questions? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
+            Have questions? We&apos;d love to hear from you. Send us a message and we&apos;ll
+            respond as soon as possible.
           </p>
         </div>
 
@@ -37,8 +38,10 @@ const ContactPage = async () => {
               </div>
               <div>
                 <h3 className="font-bold text-lg">Email Us</h3>
-                <p className="text-muted-foreground">support@eraseo.com</p>
-                <p className="text-muted-foreground text-sm mt-1">We usually reply within 24 hours.</p>
+                <p className="text-muted-foreground">support@backerase.com</p>
+                <p className="text-muted-foreground text-sm mt-1">
+                  We usually reply within 24 hours.
+                </p>
               </div>
             </div>
 
@@ -70,23 +73,34 @@ const ContactPage = async () => {
             <form className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">Name</label>
+                  <label htmlFor="name" className="text-sm font-medium">
+                    Name
+                  </label>
                   <Input id="name" placeholder="Your name" />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">Email</label>
+                  <label htmlFor="email" className="text-sm font-medium">
+                    Email
+                  </label>
                   <Input id="email" type="email" placeholder="Your email" />
                 </div>
               </div>
               <div className="space-y-2">
-                <label htmlFor="subject" className="text-sm font-medium">Subject</label>
+                <label htmlFor="subject" className="text-sm font-medium">
+                  Subject
+                </label>
                 <Input id="subject" placeholder="How can we help?" />
               </div>
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium">Message</label>
+                <label htmlFor="message" className="text-sm font-medium">
+                  Message
+                </label>
                 <Textarea id="message" placeholder="Your message..." className="min-h-[150px]" />
               </div>
-              <Button type="submit" className="w-full sm:w-auto px-8 h-12 rounded-xl bg-primary hover:bg-primary/90">
+              <Button
+                type="submit"
+                className="w-full sm:w-auto px-8 h-12 rounded-xl bg-primary hover:bg-primary/90"
+              >
                 Send Message
               </Button>
             </form>

@@ -7,8 +7,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await cache(settingServices.publicSettings)();
 
   return {
-    title: `Free Background Remover - ${settings?.general?.applicationName || 'Eraseo'}`,
-    description: `Remove backgrounds from your images for free. ${settings?.general?.applicationName || 'Eraseo'} makes it easy to create professional-looking images.`,
+    title: `Free Background Remover - ${settings?.general?.applicationName || 'Back Erase'}`,
+    description: `Remove backgrounds from your images for free. ${settings?.general?.applicationName || 'Back Erase'} makes it easy to create professional-looking images.`,
   };
 }
 const Developers = () => {
