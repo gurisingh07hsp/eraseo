@@ -66,11 +66,9 @@ import { Metadata } from 'next';
 import RemoveBackgroundPhotoClient from './RemoveBackgroundPhotoClient';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const settings = await cache(settingServices.publicSettings)();
-
   return {
-    title: `Remove Background from Photo - ${settings?.general?.applicationName || 'Eraseo'}`,
-    description: `Remove unwanted background from any photo in seconds with our AI-driven Remove Background from Photo feature.`,
+    title: `Remove Background from Photos Free | BackErase`,
+    description: `Remove photo backgrounds automatically with AI. Upload any image and download a transparent PNG in seconds with fast, high-quality results.`,
   };
 }
 

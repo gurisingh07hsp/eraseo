@@ -6,10 +6,11 @@ import React, { cache } from 'react';
 import PricingGrid from './_components/pricing-grid';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const settings = await cache(settingServices.publicSettings)();
+  // const settings = await cache(settingServices.publicSettings)();
 
   return {
-    title: `Pricing - ${settings?.general?.applicationName || ''}`,
+    title: `Affordable AI Background Remover Pricing | BackErase`,
+    description: `Choose the perfect BackErase plan for personal or business use. Fast AI background removal with flexible pricing and premium features.`,
   };
 }
 
