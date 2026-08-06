@@ -7,6 +7,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: `Privacy Policy - ${settings?.general?.applicationName || ''}`,
+    alternates: {
+      canonical: '/privacy-policy',
+    },
   };
 }
 

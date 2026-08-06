@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Remove Background from Person Photos | BackErase',
   description:
     'Remove backgrounds from portraits and people with AI precision. Perfect for profile pictures, resumes, social media, and professional photography.',
+  alternates: {
+    canonical: '/remove-background-from-person',
+  },
 };
 const RemoveBackgroundFromPerson = () => {
   return (

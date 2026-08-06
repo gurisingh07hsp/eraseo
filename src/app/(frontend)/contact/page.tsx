@@ -12,6 +12,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `Contact Us - ${settings?.general?.applicationName || 'Back Erase'}`,
     description: `Get in touch with the ${settings?.general?.applicationName || 'Back Erase'} team. We're here to help with any questions or feedback.`,
+    alternates: {
+      canonical: '/contact',
+    },
   };
 }
 

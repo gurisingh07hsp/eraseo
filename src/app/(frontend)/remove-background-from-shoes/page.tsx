@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Remove Background from Shoe Images | BackErase',
   description:
     'Instantly remove backgrounds from shoe photos using AI. Create professional footwear images for eCommerce, catalogs, and digital marketing.',
+  alternates: {
+    canonical: '/remove-background-from-shoes',
+  },
 };
 const RemoveBackgroundFromShoes = () => {
   return (

@@ -69,6 +69,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `Remove Background from Photos Free | BackErase`,
     description: `Remove photo backgrounds automatically with AI. Upload any image and download a transparent PNG in seconds with fast, high-quality results.`,
+    alternates: {
+      canonical: '/remove-background-from-photo',
+    },
   };
 }
 

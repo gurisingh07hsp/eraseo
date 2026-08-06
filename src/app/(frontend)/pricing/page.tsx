@@ -11,6 +11,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `Affordable AI Background Remover Pricing | BackErase`,
     description: `Choose the perfect BackErase plan for personal or business use. Fast AI background removal with flexible pricing and premium features.`,
+    alternates: {
+      canonical: '/pricing',
+    },
   };
 }
 

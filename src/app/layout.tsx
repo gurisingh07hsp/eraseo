@@ -12,8 +12,12 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await cache(settingServices.publicSettings)();
 
   return {
+    metadataBase: new URL('https://www.backerase.com'),
     title: settings.general.siteTitle || '',
     description: settings.general.siteDescription || '',
+    alternates: {
+      canonical: '/',
+    },
     ...(settings.general.favicon && {
       icons: [
         {

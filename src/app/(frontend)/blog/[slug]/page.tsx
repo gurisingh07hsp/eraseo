@@ -22,6 +22,9 @@ export async function generateMetadata({ params }: { params: tParams }): Promise
       description: post?.excerpt || '',
       images: post?.thumbnail ? [post.thumbnail] : [],
     },
+    alternates: {
+      canonical: `/blog/${post?.slug || ''}`,
+    },
   };
 }
 

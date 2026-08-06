@@ -7,6 +7,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: `Terms Of Service - ${settings?.general?.applicationName || ''}`,
+    alternates: {
+      canonical: '/terms-of-service',
+    },
   };
 }
 

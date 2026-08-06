@@ -12,6 +12,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: `Profile - ${settings?.general?.applicationName || ''}`,
+    alternates: {
+      canonical: '/profile',
+    },
   };
 }
 

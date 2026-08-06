@@ -10,6 +10,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: `Blog - ${settings?.general?.applicationName || ''}`,
+    alternates: {
+      canonical: '/blog',
+    },
   };
 }
 

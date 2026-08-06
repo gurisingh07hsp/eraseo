@@ -8,6 +8,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `About Us - ${settings?.general?.applicationName || 'Back Erase'}`,
     description: `Learn more about ${settings?.general?.applicationName || 'Back Erase'} and our mission to provide the best AI background removal tool.`,
+    alternates: {
+      canonical: '/about',
+    },
   };
 }
 
